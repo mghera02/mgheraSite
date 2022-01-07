@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="css/chillin.css">
+
+
+    <!-- Scripts -->
+    <script type="text/javascript" src=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+      <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Orbitron">
+  </head>
+
+ 
+
+  <body>
+    <article id="main-content">
+      <!-- Main Content -->   
+           <!-- <div id="star"></div>   -->
+           <div id="dad"> </div> 
+      </article>
+
+
+      <script>
+  var dad = document.getElementById("dad");  
+    /*for(var i=0;i<200;i++){
+      setTimeout(createStar(), 10000000);
+    
+    //console.log(i);
+  }*/
+
+ var i=0;
+ var x=0;
+  setInterval(function(){ createStar(i); i++; x++;}, 1);
+
+ /* for (let i=1; i<200; i++) {
+    setTimeout( function timer(){
+        createStar(i);
+    }, i*50 )
+    ;
+    
+}*/
+
+  function createStar(i){
+    
+    //console.log(i);
+
+    if(i>=700){ 
+         
+      
+    }else{
+      var para = document.createElement("span");
+      para.className = "star";  
+      para.style.left =Math.floor((Math.random() * 300) - 150)+"vw";
+      para.style.top =Math.floor((Math.random() * 300) - 150)+"vh";
+      if(i%3==0){
+        para.className = "starWhite"; 
+      }
+      if(i%7==0){
+        para.className = "starBlue"; 
+      }
+      if(i%25==0){
+        para.className = "starOrange"; 
+      }
+      if(i%50==0){
+        para.className = "starGreen"; 
+      }
+      if(i%150==0){
+        para.className = "starRed"; 
+      }
+      
+
+      dad.appendChild(para);
+
+
+
+
+
+      var para2 = document.createElement("span");
+      para2.className = "starWhiteSmall";  
+      para2.style.left =Math.floor((Math.random() * 300) - 150)+"vw";
+      para2.style.top =Math.floor((Math.random() * 300) - 150)+"vh";
+      dad.appendChild(para2);
+      dad.appendChild(para2);
+      dad.appendChild(para2);
+      dad.appendChild(para2);
+      dad.appendChild(para2);
+
+      var para3 = document.createElement("span");
+      para3.className = "starYellowSmall";  
+      para3.style.left =Math.floor((Math.random() * 300) - 150)+"vw";
+      para3.style.top =Math.floor((Math.random() * 300) - 150)+"vh";
+      dad.appendChild(para3);
+      dad.appendChild(para3);
+      dad.appendChild(para3);
+      dad.appendChild(para3);
+      dad.appendChild(para3);
+    }
+
+  }
+
+
+
+
+</script>  
+  </body>    
+</html>
+
+

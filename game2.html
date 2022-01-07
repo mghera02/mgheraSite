@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <!-- CSS Links -->
+  
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="css/"> -->
+
+   
+      
+  </head>
+
+ <style>
+  body {
+        margin: 0;
+        height: 100%;
+        overflow: hidden;
+        background:rgb(250,210,250);
+      }
+
+  @media (orientation: landscape) {
+    #game{
+      width:31vw;
+      border:1vw solid;
+      border-color:rgb(160,30,40);
+      overflow:hidden;
+      max-height:30vw;
+      position:relative;
+      top:5vw;
+      left:2vw;
+    }
+    #emptyBlock{
+      background:green;
+      position:relative;
+      width:2vw;
+      height:2vw;
+      border: .1vw solid;
+      border-color:black;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size:0vw 0vw;
+      z-index:-1;
+    }
+    #picBlock{
+      background:green;
+      position:relative;
+      width:2vw;
+      height:2vw;
+      border: .1vw solid;
+      border-color:black;
+      background-image:url("");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size:3.5vw 3.5vw;
+      z-index:-1;
+    }
+    #title{
+      color:blue;
+      position:relative;
+      top:1vw;
+      font-size:2vw;
+    }
+    #content{
+      position:relative;
+      top:5.5vw;
+      margin-bottom:1vw;
+    }
+    #content2{
+      position:relative;
+      color:blue;
+      top:5.5vw;
+      margin-bottom:4.5vw;
+    }
+    #popup{
+        width:25vw;
+        height:20vw;
+        background:rgb(40,200,100);
+        z-index:3;
+        position:absolute;
+        top:4vw;
+        left:3vw;
+        display:none;
+        color:white;
+        font-size:1.5vw;
+        text-align: center;
+        font-family: 'Press Start 2P', cursive;
+        line-height:30px;
+      }
+    
+      #close{
+        position:relative;
+        top:2vw;
+        color:rgb(150,0,0);
+        font-weight: bold;
+        cursor:pointer;
+      }
+      #close0{
+        position:relative;
+        top:3vw;
+        color:rgb(150,0,0);
+        font-weight: bold;
+        cursor:pointer;
+      }
+
+      #greyBackground{
+        position:relative;
+        top:-44.25vw;
+        display:none;
+        width:45.5vw;
+        height:44.25vw;
+        background:rgb(0,0,0,.5);
+      }
+
+      #popup0{
+          width:20vw;
+        height:15vw;
+        background:rgb(40,200,100);
+        z-index:3;
+        position:absolute;
+        top:10vw;
+        left:6vw;
+        display:none;
+        color:white;
+        font-size:25px;
+        text-align: center;
+        font-family: 'Press Start 2P', cursive;
+        line-height:30px;
+        }  
+        #back{
+            cursor:pointer;
+            font-family: 'Press Start 2P', cursive;
+            font-size:25px;
+            top:30px;
+            color:rgb(150,0,0);
+            position:relative;
+            left:2.5%;
+          }
+          #upBtn{
+              display:none;
+            }
+            #rightBtn{
+              display:none;
+            }
+            #downBtn{
+              display:none;
+            }
+            #leftBtn{
+              display:none;
+            }
+
+    }
+
+    @media (orientation: portrait) {
+      #game{
+          width:73vw;
+          border:1vw solid;
+          border-color:rgb(160,30,40);
+          overflow:hidden;
+          max-height:75vw;
+          position:relative;
+          top:5vw;
+          left:2vw;
+        }
+      #emptyBlock{
+          background:green;
+          position:relative;
+          width:5vw;
+          height:5vw;
+          border: .1vw solid;
+          border-color:black;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-image:url("")!important;
+          background-size:6vw 6vw;
+          z-index:-1;
+        }
+        #picBlock{
+          background:green;
+          position:relative;
+          width:5vw;
+          height:5vw;
+          border: .1vw solid;
+          border-color:black;
+          background-image:url("");
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size:8vw 8vw;
+          z-index:-1;
+        }
+        #title{
+          color:blue;
+          position:relative;
+          top:1vw;
+          font-size:3vw;
+        }
+        #content{
+          position:relative;
+          top:5.5vw;
+          margin-bottom:2vw;
+        }
+        #content2{
+          position:relative;
+          color:blue;
+          top:5.5vw;
+          margin-bottom:2vw;
+        }
+        #popup{
+            width:60vw;
+            height:30vw;
+            background:rgb(40,200,100);
+            z-index:3;
+            position:absolute;
+            top:10vw;
+            left:7vw;
+            display:none;
+            color:white;
+            font-size:2.5vw;
+            text-align: center;
+            font-family: 'Press Start 2P', cursive;
+            line-height:30px;
+          }
+        
+          #close{
+            position:relative;
+            top:25%;
+            color:rgb(150,0,0);
+            font-weight: bold;
+            cursor:pointer;
+            font-size:3.5vw;
+          }
+
+          #greyBackground{
+            position:relative;
+            top:-90vw;
+            display:none;
+            width:90vw;
+            height:90vw;
+            background:rgb(0,0,0,.5);
+          }
+
+          #popup0{
+            width:67vw;
+            height:20vw;
+            background:rgb(40,200,100);
+            z-index:3;
+            position:absolute;
+            top:10vw;
+            left:3vw;
+            display:none;
+            color:white;
+            font-size:25px;
+            text-align: center;
+            font-family: 'Press Start 2P', cursive;
+            line-height:30px;
+            }  
+            #upBtn{
+              width:15vw;
+              height:20vw;
+              background:rgb(40,200,100);
+              position:relative;
+              top:10vw;
+              color:white;
+              left:30vw;
+              border:solid .7vw;
+              border-color:rgb(10,100,20);
+              font-size:10vw;
+              text-align:center;
+            }
+            #rightBtn{
+              width:25vw;
+              height:15vw;
+              background:rgb(40,200,100);
+              position:relative;
+              top:9.3vw;
+              color:white;
+              left:37.9vw;
+              border:solid .7vw;
+              border-color:rgb(10,100,20);
+              font-size:10vw;
+              text-align:center;
+              padding-top:0vw;
+            }
+            #downBtn{
+              width:15vw;
+              height:20vw;
+              background:rgb(40,200,100);
+              position:relative;
+              top:8.8vw;
+              color:white;
+              left:29.5vw;
+              border:solid .7vw;
+              border-color:rgb(10,100,20);
+              font-size:10vw;
+              text-align:center;
+            }
+            #leftBtn{
+              width:25vw;
+              height:15vw;
+              background:rgb(40,200,100);
+              position:relative;
+              top:-28.5vw;
+              left:11.75vw;
+              color:white;
+              border:solid .7vw;
+              border-color:rgb(10,100,20);
+              font-size:10vw;
+              text-align:center;
+              padding-top:0vw;
+            }
+         #back{
+          cursor:pointer;
+          font-family: 'Press Start 2P', cursive;
+          font-size:25px;
+          top:30px;
+          color:rgb(150,0,0);
+          position:relative;
+          left:2.5%;
+        }
+    }  
+ </style> 
+  
+
+
+  <body>
+    <div id="back" onclick="window.location='gameHub.html'">Back to Selection Screen << </div>
+  	<div id="game">
+      	<div id="gameScreen">
+      	</div>
+        <div id="greyBackground"></div>
+            <div id="popup">
+              <div id="title">You Died!</div>
+              <div id="content"></div>
+              <div id="content2"></div>
+              <div id="close" onclick="location.reload();">Play Again</div>
+            </div>
+            <div id="popup0">
+              <div id="info0"></div>
+              <btn id="close0" onclick="startGame()">START</btn>
+            </div>
+    </div>  	
+
+    <div id="upBtn" onclick="goUp()">&#8593;</div>
+    <div id="rightBtn" onclick="goRight()">&#8594;</div>
+    <div id="downBtn" onclick="goDown()">&#8595;</div>
+    <div id="leftBtn" onclick="goLeft()">&#8592;</div>
+          
+<audio id="jumpSound" src="gameMedia/BarrierSingle.wav" preload="auto"></audio>
+<audio id="dieSound" src="gameMedia/stat lower.wav" preload="auto"></audio>
+ 
+
+      	<!-- Scripts -->
+    	<script type="text/javascript" src="js/game2.js"></script> 
+
+
+    	
+
+
+  </body>    
+</html>

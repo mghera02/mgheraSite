@@ -1,0 +1,220 @@
+body {
+        background:rgb(250,210,250);
+      }
+
+  
+     #gameScreen{
+    		position:absolute;
+    		top:100px;
+    		left:10px;
+    		border: 1px solid black;
+    		width:700px;
+    		height:300px;
+    		overflow:hidden !important;
+        padding:10px;
+        background:rgb(160,30,40);
+    	}
+
+    	#gameScreenBackground{ 
+    	  position:relative;	
+        left: 0%;
+        height:100%;
+        top:0%;
+        width:100%;
+    	}
+
+    	#character{
+    		width:40px;
+    		height:75px;
+    		position:relative;
+    		top:225px;
+    		left:25px;
+    	}
+
+    	#characterInside{
+    	  position:relative; 
+        left: 225%;
+        transform: translateX(-50%);
+        height:350%;
+        top:-650%;
+        width:820%;
+    	}
+
+    	.animate{
+      -webkit-animation-name: jump;
+      -webkit-animation-duration: .5s;
+      -webkit-animation-timing-function: linear;
+      }
+
+    	@-webkit-keyframes jump{
+        0%{top:225px;}
+        5%{top:185px;}
+        40%{top:150px;}
+        60%{top:150px;}
+        100%{top:225px;}
+      }
+
+    	#normalBlock{
+    		width:50px;
+    		height:40px;
+    		background:rgb(0,0,0,0);
+    		position:absolute;
+    		top:232px;
+    		animation:block 3.7s linear infinite;
+    	}
+
+    	#obstacleImage{
+    		position:relative;
+    		top:-100%;
+    		width:250%;
+    		height:300%;
+    	}
+
+    	@keyframes block{
+    		0%{left:2000px;}
+    		100%{left:-50px;}
+    	}
+
+    	#points{
+    		position:relative;
+    		size:5vw;
+    		color:rgb(150,0,0);
+    		left:2%;
+    		top:-125%;
+    		font-family: 'Press Start 2P', cursive;
+    	}
+
+    	#highScore{
+    		position:relative;
+    		size:5vw;
+    		color:rgb(150,0,0);
+    		left:2%;
+    		top:-120%;
+    		font-family: 'Press Start 2P', cursive;
+    	}
+
+    	#popup0,
+      #popup{
+    		width:80%;
+    		height:40%;
+    		background:rgb(40,200,100);
+    		z-index:3;
+    		position:absolute;
+    		top:25%;
+    		left:10%;
+    		display:none;
+    		color:white;
+    		font-size:25px;
+    		text-align: center;
+    		font-family: 'Press Start 2P', cursive;
+    		line-height:30px;
+    	}
+
+    	#info0,
+      #info{
+    		position:relative;
+    		top:10%;
+        font-size:2vw;
+    	}
+
+    	#close,#close0{
+    		position:relative;
+    		top:20%;
+    		color:rgb(150,0,0);
+    		font-weight: bold;
+    		cursor:pointer;
+    	}
+
+    	#darkBackground{
+    		width:100%;
+    		height:100%;
+    		background:rgb(0,0,0,.7);
+    		z-index:1;
+    		position:absolute;
+    		top:0%;
+    		left:0%;
+    		display:none;
+    	}
+
+      #back{
+          cursor:pointer;
+          font-family: 'Press Start 2P', cursive;
+          font-size:25px;
+          top:30px;
+          color:rgb(150,0,0);
+          position:relative;
+          left:2.5%;
+        }
+         #jumpBtn{
+       display:none;
+      }
+  
+
+  @media (orientation: portrait) {
+    .animate{
+      -webkit-animation-name: jump;
+      -webkit-animation-duration: .6s;
+      -webkit-animation-timing-function: linear;
+      }
+
+    @-webkit-keyframes jump{
+        0%{top:225px;}
+        5%{top:150px;}
+        40%{top:120px;}
+        60%{top:120px;}
+        100%{top:225px;}
+      }
+      #jumpBtn{
+        position:relative;
+        width:700px;
+        background:rgb(40,200,100);
+        font-family: 'Press Start 2P', cursive;
+        color:rgb(150,0,0);
+        font-weight: bold;
+        top:395px;
+        left:3px;
+        font-size:30px;
+        text-align:center;
+        padding-top:25px;
+        padding-bottom:25px;
+        display:block;
+      }
+      #popup{
+        width:80%;
+        height:50%;
+        background:rgb(40,200,100);
+        z-index:3;
+        position:absolute;
+        top:25%;
+        left:10%;
+        display:none;
+        color:white;
+        font-size:25px;
+        text-align: center;
+        font-family: 'Press Start 2P', cursive;
+        line-height:30px;
+      }  
+      #popup0{
+        width:80%;
+        height:20vw;
+        background:rgb(40,200,100);
+        z-index:3;
+        position:absolute;
+        top:5vw;
+        left:10%;
+        display:none;
+        color:white;
+        font-size:25px;
+        text-align: center;
+        font-family: 'Press Start 2P', cursive;
+        line-height:30px;
+      }  
+      #close0{
+            position:relative;
+            top:40px;
+            color:rgb(150,0,0);
+            font-weight: bold;
+            cursor:pointer;
+        }
+      
+  }

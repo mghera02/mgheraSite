@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <!-- CSS Links -->
+  
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="css/"> -->
+
+   
+      
+  </head>
+
+ <style>
+  body{
+    background:rgb(250,210,250);
+  }
+
+  @media (orientation: landscape) {
+    #machine{
+      height:40vw;
+      width:46.67vw;
+      background:rgb(170,0,240);
+      position:absolute;
+      left:5vw;
+      border-top-left-radius: 10% 15%;
+      border-top-right-radius: 10% 15%;
+      border:1vw solid;
+      border-color:rgb(90,0,90);
+    }
+    #innerColor{
+      height:85%;
+      width:100%;
+      position:relative;
+      left:0%;
+      top:-36.2%;
+      background:rgb(230,50,60);
+      border-bottom:2vw solid;
+      border-color:rgb(230,50,60);
+    }
+
+    #title{
+      font-size:2.6vw;
+      color:rgb(255,255,150);
+      position:relative;
+      top:-36.5%;
+      text-align:center;
+      font-family: 'Monoton', cursive;
+      text-shadow:
+          0 0 .25vw rgb(255,255,255,.8),
+          0 0 .5vw rgb(224, 224, 85,.7),
+          0 0 1vw rgb(208, 208, 69,.6),
+          0 0 2vw rgb(192, 192, 53,.5),
+          0 0 4vw rgb(176, 176, 37,.4),
+          0 0 4.5vw rgb(160, 160, 21,.3),
+          0 0 5vw rgb(144, 144, 5,.2),
+          0 0 7.5vw rgb(128, 128, 0,.1),
+          0 0 10vw rgb(75, 75, 0,.75);
+    }
+
+    #screen{
+      position:relative;
+      left:4.25%;
+      top:7%;
+      width:90%;
+      height:50%;
+      background:rgb(215,215,255);
+      border:.5vw solid;
+      border-color:rgb(160,30,40);
+    }
+
+    #platformParent{
+      perspective: 120em;
+    }
+
+    #platform{
+     position:relative;
+     top:1vw;
+     left:0vw;
+    width: 100%;
+    height: 7vw;
+    background:rgb(100,20,20);
+    display: inline-block;
+    border-bottom: 9px solid rgba(0,0,0,.5);
+    }
+
+
+  #platformParent #platform {
+    transform: perspective(50em) rotateX(40deg);
+  }
+
+
+
+
+   #buttonParent{
+      perspective: 120em;
+    }
+
+    #greenBtn{
+      position:relative;
+      top:2vw;
+      left:10%;
+      width: 4vw;
+      height: 4vw;
+      background:rgb(20,200,20);
+      display: inline-block;
+      border-radius: 50%;
+      border-bottom: 5px solid rgba(0,0,0,.9);
+      cursor:pointer;
+    }
+
+    #blueBtn{
+      position:relative;
+      top:2vw;
+      left:34%;
+      width: 4vw;
+      height: 4vw;
+      background:rgb(20,20,200);
+      display: inline-block;
+      border-radius: 50%;
+      border-bottom: 5px solid rgba(0,0,0,.9);
+      cursor:pointer;
+    }
+
+     #yellowBtn{
+      position:relative;
+      top:2vw;
+      left:58%;
+      width: 4vw;
+      height: 4vw;
+      background:rgb(200,200,20);
+      display: inline-block;
+      border-radius: 50%;
+      border-bottom: 5px solid rgba(0,0,0,.9);
+      cursor:pointer;
+    }
+
+    #game1{
+      position:relative;
+      top:-5%;
+      left:5%;
+      width:25%;
+      height:33%;
+    }
+
+    #game2{
+      position:relative;
+      top:5%;
+      left:12%;
+      width:25%;
+      height:50%;
+    }  
+
+    #game3{
+      position:relative;
+      top:10%;
+      left:22.5%;
+      width:20%;
+      height:60%;
+    }
+
+    #game1Sub{
+      position:relative;
+      font-size:1.1vw;
+      left:-33%;
+      top:1.75vw;
+      font-family: 'Press Start 2P', cursive;
+      text-align:center;
+      color:rgb(40,230,60);
+    }
+    #game2Sub{
+      position:relative;
+      font-size:1.1vw;
+      left:0%;
+      top:.75vw;
+      font-family: 'Press Start 2P', cursive;
+      text-align:center;
+      color:blue;
+    }
+    #game3Sub{
+      position:relative;
+      font-size:1.1vw;
+      left:34%;
+      top:-1.35vw;
+      font-family: 'Press Start 2P', cursive;
+      text-align:center;
+      color:rgb(250,200,20);
+    }
+
+
+
+
+
+
+    #redLight{
+      position:relative;
+      height:6.42%;
+      width:5.5%;
+      background:red;
+      border-radius:50%;
+      top:4%;
+      left:5%;
+    }
+    #blueLight{
+      position:relative;
+      height:6.42%;
+      width:5.5%;
+      background:blue;
+      border-radius:50%;
+      top:-2.58%;
+      left:12.5%;
+    }
+    #redLight2{
+      position:relative;
+      height:6.42%;
+      width:5.5%;
+      background:red;
+      border-radius:50%;
+      top:-9.16%;
+      left:20%;
+    }
+    #blueLight2{
+    position:relative;
+      height:6.42%;
+      width:5.5%;
+      background:blue;
+      border-radius:50%;
+      top:-15.74%;
+      left:75%;
+    }
+    #redLight3{
+      position:relative;
+      height:6.42%;
+      width:5.5%;
+      background:red;
+      border-radius:50%;
+      top:-22.05%;
+      left:82.5%;
+    }
+    #blueLight3{
+      position:relative;
+      height:6.42%;
+      width:5.5%;
+      background:blue;
+      border-radius:50%;
+      top:-28.3%;
+      left:90%;
+    }  
+
+    #back{
+      display:none;
+      cursor:pointer;
+      font-family: 'Press Start 2P', cursive;
+      font-size:20px;
+      color:rgb(150,0,0);
+      position:relative;
+      left:2.5%;
+    }
+
+   /* #trexGame{
+      border:none;
+      position:relative;
+      left:2.5%;
+      top:-5%;
+      width:720px;
+      height:320px;
+      display:none;
+      padding:10px;
+      background:rgb(160,30,40);
+    }
+    #snakeGame{
+      border:none;
+      position:relative;
+      left:2.5%;
+      top:-5%;
+      width:60vw;
+      height:50vw;
+      display:none;
+      overflow:hidden
+    }
+    #carGame{
+      border:none;
+      position:relative;
+      left:2.5%;
+      top:10px;
+      height:420px;
+      width:180px;
+      display:none;
+      border:10px solid;
+      border-color:rgb(160,30,40);
+    }*/
+
+  }
+  
+
+
+
+
+
+
+
+
+  @media (orientation: portrait) {
+      #machine{
+          height:60vw;
+          width:70.01vw;
+          background:rgb(170,0,240);
+          position:absolute;
+          left:15vw;
+          top:5vw;
+          border-top-left-radius: 10% 15%;
+          border-top-right-radius: 10% 15%;
+          border:1vw solid;
+          border-color:rgb(90,0,90);
+        }
+        #innerColor{
+          height:85%;
+          width:100%;
+          position:relative;
+          left:0%;
+          top:-35%;
+          background:rgb(230,50,60);
+          border-bottom:2vw solid;
+          border-color:rgb(230,50,60);
+        }
+
+        #title{
+          font-size:4vw;
+          color:rgb(255,255,150);
+          position:relative;
+          top:-38.5%;
+          text-align:center;
+          font-family: 'Monoton', cursive;
+          text-shadow:
+              0 0 .25vw rgb(255,255,255,.8),
+              0 0 .5vw rgb(224, 224, 85,.7),
+              0 0 1vw rgb(208, 208, 69,.6),
+              0 0 2vw rgb(192, 192, 53,.5),
+              0 0 4vw rgb(176, 176, 37,.4),
+              0 0 4.5vw rgb(160, 160, 21,.3),
+              0 0 5vw rgb(144, 144, 5,.2),
+              0 0 7.5vw rgb(128, 128, 0,.1),
+              0 0 10vw rgb(75, 75, 0,.75);
+        }
+
+        #screen{
+          position:relative;
+          left:4.25%;
+          top:7%;
+          width:90%;
+          height:50%;
+          background:rgb(215,215,255);
+          border:.5vw solid;
+          border-color:rgb(160,30,40);
+        }
+
+        #platformParent{
+          perspective: 120em;
+        }
+
+        #platform{
+         position:relative;
+         top:1vw;
+         left:0vw;
+        width: 100%;
+        height: 9vw;
+        background:rgb(100,20,20);
+        display: inline-block;
+        border-bottom: 9px solid rgba(0,0,0,.5);
+        }
+
+
+      #platformParent #platform {
+        transform: perspective(50em) rotateX(40deg);
+      }
+
+
+
+
+       #buttonParent{
+          perspective: 120em;
+        }
+
+        #greenBtn{
+          position:relative;
+          top:2vw;
+          left:10%;
+          width: 6vw;
+          height: 6vw;
+          background:rgb(20,200,20);
+          display: inline-block;
+          border-radius: 50%;
+          border-bottom: 5px solid rgba(0,0,0,.9);
+          cursor:pointer;
+        }
+
+        #blueBtn{
+          position:relative;
+          top:2vw;
+          left:34%;
+          width: 6vw;
+          height: 6vw;
+          background:rgb(20,20,200);
+          display: inline-block;
+          border-radius: 50%;
+          border-bottom: 5px solid rgba(0,0,0,.9);
+          cursor:pointer;
+        }
+
+         #yellowBtn{
+          position:relative;
+          top:2vw;
+          left:58%;
+          width: 6vw;
+          height: 6vw;
+          background:rgb(200,200,20);
+          display: inline-block;
+          border-radius: 50%;
+          border-bottom: 5px solid rgba(0,0,0,.9);
+          cursor:pointer;
+        }
+
+        #game1{
+          position:relative;
+          top:-1vw;
+          left:3vw;
+          width:16vw;
+          height:10vw;
+        }
+
+        #game2{
+          position:relative;
+          top:1vw;
+          left:7vw;
+          width:14vw;
+          height:14vw;
+        }  
+
+        #game3{
+          position:relative;
+          top:2.5vw;
+          left:18vw;
+          width:10vw;
+          height:16vw;
+        }
+
+        #game1Sub{
+          position:relative;
+          font-size:1.3vw;
+          left:-34%;
+          top:3.25vw;
+          font-family: 'Press Start 2P', cursive;
+          text-align:center;
+          color:rgb(40,230,60);
+        }
+        #game2Sub{
+          position:relative;
+          font-size:1.3vw;
+          left:-2%;
+          top:2.4vw;
+          font-family: 'Press Start 2P', cursive;
+          text-align:center;
+          color:blue;
+        }
+        #game3Sub{
+          position:relative;
+          font-size:1.3vw;
+          left:35.5%;
+          top:.5vw;
+          font-family: 'Press Start 2P', cursive;
+          text-align:center;
+          color:rgb(250,200,20);
+        }
+
+
+
+
+
+
+        #redLight{
+          position:relative;
+          height:7%;
+          width:5.75%;
+          background:red;
+          border-radius:50%;
+          top:5%;
+          left:5%;
+        }
+        #blueLight{
+          position:relative;
+          height:7%;
+          width:5.75%;
+          background:blue;
+          border-radius:50%;
+          top:-1.9%;
+          left:12.5%;
+        }
+        #redLight2{
+          position:relative;
+          height:7%;
+          width:5.75%;
+          background:red;
+          border-radius:50%;
+          top:-9%;
+          left:20%;
+        }
+        #blueLight2{
+        position:relative;
+          height:7%;
+          width:5.75%;
+          background:blue;
+          border-radius:50%;
+          top:-15.74%;
+          left:75%;
+        }
+        #redLight3{
+          position:relative;
+          height:7%;
+          width:5.75%;
+          background:red;
+          border-radius:50%;
+          top:-22.5%;
+          left:82.5%;
+        }
+        #blueLight3{
+          position:relative;
+          height:7%;
+          width:5.75%;
+          background:blue;
+          border-radius:50%;
+          top:-29.4%;
+          left:90%;
+        }  
+
+        #back{
+          display:none;
+          cursor:pointer;
+          font-family: 'Press Start 2P', cursive;
+          font-size:20px;
+          color:rgb(150,0,0);
+          position:relative;
+          left:2.5%;
+        }
+
+        /*#trexGame{
+          border:none;
+          position:relative;
+          left:2.5%;
+          top:-5%;
+          width:720px;
+          height:320px;
+          display:none;
+          padding:10px;
+          background:rgb(160,30,40);
+        }
+        #snakeGame{
+          border:none;
+          position:relative;
+          left:2.5%;
+          top:-5%;
+          width:60vw;
+          height:50vw;
+          display:none;
+          overflow:hidden
+        }
+        #carGame{
+          border:none;
+          position:relative;
+          left:2.5%;
+          top:10px;
+          height:420px;
+          width:180px;
+          display:none;
+          border:10px solid;
+          border-color:rgb(160,30,40);
+        } */
+  }       
+ </style> 
+  
+
+
+  <body>
+    	
+    <div id="machine">
+      <div id="redLight"></div>
+      <div id="blueLight"></div>
+      <div id="redLight2"></div>
+      <div id="blueLight2"></div>
+      <div id="redLight3"></div>
+      <div id="blueLight3"></div>
+
+      <div id="title"> Love Arcade </div>
+      <div id="innerColor">
+        <div id="screen">
+          <img src="gameMedia/trexSnapShot.PNG" id="game1"></img>
+          <img src="gameMedia/snakeSnapSh.PNG" id="game2"></img>
+          <img src="gameMedia/snakeSnapShot.PNG" id="game3">
+          <div id="game1Sub">TOO FAST</div>
+          <div id="game2Sub">STRAWBERRY<br>BABY</div>
+          <div id="game3Sub">CARS NEED<br>GAS</div>
+          <!-- <div id="trexGame"></div> -->
+        </div>
+        <div id="platformParent">
+          <div id="platform">
+            <div id="buttonParent">
+              <div id="greenBtn" onclick="window.location='game1.html'"></div>
+              <div id="blueBtn" onclick="window.location='game2.html'"></div>
+              <div id="yellowBtn" onclick="window.location='game3.html'"></div>
+            </div>  
+          </div>  
+        </div>  
+      </div>  
+    </div> 
+    
+    <div id="back" onclick="window.location='gameHub.html'">Back to Selection Screen << </div>
+    <!-- <iframe src="" id="trexGame"></iframe>
+    <iframe src="" id="snakeGame"></iframe>
+    <iframe src="" id="carGame"></iframe> -->
+
+
+
+    <script>
+      var loop=0;
+        setInterval(function(){
+            document.getElementById("redLight").style.boxShadow="0px 0px 1.75vw rgb(0,255,0,0)";
+            document.getElementById("blueLight").style.boxShadow="0px 0px 1.75vw rgb(0,0,255,0)";
+            document.getElementById("redLight2").style.boxShadow="0px 0px 1.75vw rgb(0,255,0,0)";
+            document.getElementById("blueLight2").style.boxShadow="0px 0px 1.75vw rgb(0,0,255,0)";
+            document.getElementById("redLight3").style.boxShadow="0px 0px 1.75vw rgb(0,255,0,0)";
+            document.getElementById("blueLight3").style.boxShadow="0px 0px 1.75vw rgb(0,0,255,0)";
+
+            document.getElementById("redLight").style.background="rgb(255,0,0)";
+            document.getElementById("redLight2").style.background="rgb(255,0,0)";
+            document.getElementById("redLight3").style.background="rgb(255,0,0)";
+            document.getElementById("blueLight").style.background="rgb(0,0,255)";
+            document.getElementById("blueLight2").style.background="rgb(0,0,255)";
+            document.getElementById("blueLight3").style.background="rgb(0,0,255)";
+
+            if(loop==0){
+              document.getElementById("redLight").style.boxShadow="0px 0px 1.75vw rgb(255,0,0,.75)";
+              document.getElementById("redLight").style.background="rgb(255,100,100)";
+            }
+            if(loop==1){
+              document.getElementById("blueLight").style.boxShadow="0px 0px 1.75vw rgb(0,0,255,.75)";
+              document.getElementById("blueLight").style.background="rgb(100,100,255)";
+            }
+            if(loop==2){
+              document.getElementById("redLight2").style.boxShadow="0px 0px 1.75vw rgb(255,0,0,.75)";
+              document.getElementById("redLight2").style.background="rgb(255,100,100)";
+            }
+            if(loop==3){
+              document.getElementById("blueLight2").style.boxShadow="0px 0px 1.75vw rgb(0,0,255,.75)";
+              document.getElementById("blueLight2").style.background="rgb(100,100,255)";
+            }
+            if(loop==4){
+              document.getElementById("redLight3").style.boxShadow="0px 0px 1.75vw rgb(255,0,0,.75)";
+              document.getElementById("redLight3").style.background="rgb(255,100,100)";
+            }
+            if(loop==5){
+              document.getElementById("blueLight3").style.boxShadow="0px 0px 1.75vw rgb(0,0,255,.75)";
+              document.getElementById("blueLight3").style.background="rgb(100,100,255)";
+              loop=-1;
+          }
+          loop++; 
+          
+      },750);    
+
+
+        /*function trexGame(){
+          document.getElementById("machine").style.display="none";
+          document.getElementById("trexGame").style.display="block";
+          document.getElementById("back").style.display="block";
+          document.getElementById("trexGame").src="game1.html";
+        }
+
+        function snakeGame(){
+          document.getElementById("machine").style.display="none";
+          document.getElementById("snakeGame").style.display="block";
+          document.getElementById("back").style.display="block";
+          document.getElementById("snakeGame").src="game2.html";
+        }
+
+        function carGame(){
+          document.getElementById("machine").style.display="none";
+          document.getElementById("carGame").style.display="block";
+          document.getElementById("back").style.display="block";
+          document.getElementById("carGame").src="game3.html";
+        }
+*/
+    </script>  
+
+  </body>    
+</html>

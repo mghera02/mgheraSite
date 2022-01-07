@@ -1,0 +1,249 @@
+:root {
+  --background: rgb(255,255,150);
+}
+
+
+body{
+	background:black;
+}
+
+.star {
+    width: 0;
+    height: 0;
+    border: .5vw solid transparent;
+    border-bottom: .7vw solid rgb(255,255,150);
+    position: absolute;
+    top: .5vw;
+    left:.5vw;
+    animation: 3s linear .1s flicker infinite;
+    filter: drop-shadow(0 0 .6vw rgb(255,255,150));
+    z-index:1;
+}
+.star::after {
+  	content: '';
+    position: absolute;
+    left: -.5vw;
+    top: .7vw;
+    width: 0;
+    height: 0;
+    border: .5vw solid transparent;
+    border-top: .7vw solid var(--background);
+    z-index:1;
+}
+
+.starWhite {
+    width: 0;
+    height: 0;
+    border: .5vw solid transparent;
+    border-bottom: .7vw solid rgb(255,255,240);
+    position: absolute;
+    top: .5vw;
+    left:.5vw;
+    animation: 3s linear .1s flicker infinite;
+    filter: drop-shadow(0 0 .6vw rgb(255,255,240));
+    z-index:1;
+}
+.starWhite::after {
+  	content: '';
+    position: absolute;
+    left: -.5vw;
+    top: .7vw;
+    width: 0;
+    height: 0;
+    border: .5vw solid transparent;
+    border-top: .7vw solid rgb(255,255,240);
+    z-index:1;
+}
+
+.starBlue {
+    width: 0;
+    height: 0;
+    border: .5vw solid transparent;
+    border-bottom: .7vw solid rgb(195,195,255);
+    position: absolute;
+    top: .5vw;
+    left:.5vw;
+    animation: 3s linear .1s flicker infinite;
+    filter: drop-shadow(0 0 .6vw rgb(195,195,255));
+    z-index:1;
+}
+.starBlue::after {
+  	content: '';
+    position: absolute;
+    left: -.5vw;
+    top: .7vw;
+    width: 0;
+    height: 0;
+    border: .5vw solid transparent;
+    border-top: .7vw solid rgb(195,195,255);
+    z-index:1;
+}
+
+.starOrange {
+    width: 0;
+    height: 0;
+    border: .5vw solid transparent;
+    border-bottom: .7vw solid rgb(255,180,130);
+    position: absolute;
+    top: .5vw;
+    left:.5vw;
+    animation: 3s linear .1s flicker infinite;
+    filter: drop-shadow(0 0 .6vw rgb(255,180,130));
+    z-index:1;
+}
+.starOrange::after {
+  	content: '';
+    position: absolute;
+    left: -.5vw;
+    top: .7vw;
+    width: 0;
+    height: 0;
+    border: .5vw solid transparent;
+    border-top: .7vw solid rgb(255,180,130);
+    z-index:1;
+}
+
+.starGreen {
+    width: 0;
+    height: 0;
+    border: .5vw solid transparent;
+    border-bottom: .7vw solid rgb(180,255,170);
+    position: absolute;
+    top: .5vw;
+    left:.5vw;
+    animation: 3s linear .1s flicker infinite;
+    filter: drop-shadow(0 0 .6vw rgb(180,255,170));
+    z-index:1;
+}
+.starGreen::after {
+  	content: '';
+    position: absolute;
+    left: -.5vw;
+    top: .7vw;
+    width: 0;
+    height: 0;
+    border: .5vw solid transparent;
+    border-top: .7vw solid rgb(180,255,170);
+    z-index:1;
+}
+
+.starRed {
+    width: 0;
+    height: 0;
+    border: .5vw solid transparent;
+    border-bottom: .7vw solid rgb(255,120,120);
+    position: absolute;
+    top: .5vw;
+    left:.5vw;
+    animation: 3s linear .1s flicker infinite;
+    filter: drop-shadow(0 0 .6vw rgb(255,120,120));
+    z-index:1;
+}
+.starRed::after {
+  	content: '';
+    position: absolute;
+    left: -.5vw;
+    top: .7vw;
+    width: 0;
+    height: 0;
+    border: .5vw solid transparent;
+    border-top: .7vw solid rgb(255,120,120);
+    z-index:1;
+}
+
+
+.starWhiteSmall {
+    width: 0;
+    height: 0;
+    border: .05vw solid transparent;
+    border-bottom: .07vw solid rgb(255,255,240);
+    position: absolute;
+    top: .05vw;
+    left:.05vw;
+    animation: 3s linear .1s flicker infinite;
+    filter: drop-shadow(0 0 .06vw rgb(255,255,240));
+    z-index:-1;
+}
+.starWhiteSmall::after {
+  	content: '';
+    position: absolute;
+    left: -.05vw;
+    top: .07vw;
+    width: 0;
+    height: 0;
+    border: .05vw solid transparent;
+    border-top: .07vw solid rgb(255,255,240);
+    z-index:-1;
+}
+
+.starYellowSmall {
+    width: 0;
+    height: 0;
+    border: .05vw solid transparent;
+    border-bottom: .07vw solid rgb(255,255,150);
+    position: absolute;
+    top: .05vw;
+    left:.05vw;
+    animation: 3s linear .1s flicker infinite;
+    filter: drop-shadow(0 0 .06vw rgb(255,255,150));
+    z-index:-1;
+}
+.starYellowSmall::after {
+  	content: '';
+    position: absolute;
+    left: -.05vw;
+    top: .07vw;
+    width: 0;
+    height: 0;
+    border: .05vw solid transparent;
+    border-top: .07vw solid rgb(255,255,150);
+    z-index:-1;
+}
+
+#dad{
+	-webkit-animation-iteration-count:infinite;
+    -webkit-animation-timing-function:linear;
+    -webkit-animation-name:orbit;
+    -webkit-animation-duration:200s;
+}
+
+@-webkit-keyframes orbit { 
+from { -webkit-transform:rotate(0deg) } 
+to { -webkit-transform:rotate(360deg) } 
+}
+
+@keyframes flicker {
+  10% {
+    opacity: 0;
+  }
+  10% {
+    opacity: .1;
+  }
+  20% {
+    opacity: .2;
+  }
+  30% {
+    opacity: .3;
+  }
+  40% {
+    opacity: .4;
+  }
+  50% {
+    opacity: .5;
+  }
+  60% {
+    opacity: .6;
+  }
+  70% {
+    opacity: .7;
+  }
+  80% {
+    opacity: .8;
+  }
+  90% {
+    opacity: .9;
+  }
+  100% {
+    opacity: 1;
+  }
+}

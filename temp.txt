@@ -1,0 +1,65 @@
+ <div id="holocronCollection">
+              <img src="img/worldBetweenWorlds5.jpg" id="worldBetweenWorlds5"> 
+              <?php if($enabled=="green"){ ?>
+                <btn onclick="btnClick(1);" class="holocronCircle" style="box-shadow: 0px 0px 3vw rgb(0,200,0,.9);">
+              <?php }else{ ?>
+                <btn onclick="btnClick(1);" class="holocronCircle" style="box-shadow: 0px 0px 9.5vw rgb(0,200,0,.8);">
+              <?php } ?>
+                <div class="holocronText"></div>
+                <img src="img/greenlightsaber.jpg" class="nav__img2">
+              </btn> 
+            </div> 
+            
+
+              <?php if($enabled=="blue"){ ?>
+                <btn onclick="window.location='blue.php'" class="holocronCircle" style="box-shadow: 0px 0px 3vw rgb(0,0,255,.9);">
+              <?php }else{ ?>
+                <btn onclick="window.location='blue.php'" class="holocronCircle" style="box-shadow: 0px 0px 9.5vw rgb(0,0,255,.8);">
+              <?php } ?>
+                <div class="holocronText"></div>
+                <img src="img/bluelightsaber.jpg" class="nav__img2">
+              </btn>
+              <?php if($enabled=="magenta"){ ?>
+                <btn onclick="window.location='magenta.php'" class="holocronCircle" style="box-shadow: 0px 0px 3vw rgb(255,50,255,.9);">
+              <?php }else{ ?>
+                <btn onclick="window.location='magenta.php'" class="holocronCircle" style="box-shadow: 0px 0px 9.5vw rgb(255,50,255,.8);">
+              <?php } ?>
+                <div class="holocronText"></div>
+                <img src="img/magentalightsaber.jpg" class="nav__img2">
+              </btn>  
+              <br>
+            <div id="holocronCollection2">  
+              <?php if($enabled=="lime"){ ?>
+                <btn onclick="window.location='lime.php'" class="holocronCircle" style="box-shadow: 0px 0px 3vw rgb(140,255,0,.9);">
+              <?php }else{ ?>
+                <btn onclick="window.location='lime.php'" class="holocronCircle" style="box-shadow: 0px 0px 9.5vw rgb(140,255,0,.8);">
+              <?php } ?>
+                <div class="holocronText"></div>
+                <img src="img/limelightsaber.png" class="nav__img4">
+              </btn>
+              <?php if($enabled=="cyan"){ ?>
+                <btn onclick="window.location='cyan.php'" class="holocronCircle" style="box-shadow: 0px 0px 3vw rgb(0,255,255,.9);">
+              <?php }else{ ?>
+                <btn onclick="window.location='cyan.php'" class="holocronCircle" style="box-shadow: 0px 0px 9.5vw rgb(0,255,255,.8);">
+              <?php } ?>
+                <div class="holocronText"></div>
+                <img src="img/cyanlightsaber.png" class="nav__img2">
+              </btn>  
+              <?php if($enabled=="white"){ ?>
+                <btn onclick="window.location='white.php'" class="holocronCircle" style="box-shadow: 0px 0px 3vw rgb(255,255,255,.9);">
+              <?php }else{ ?>
+                <btn onclick="window.location='white.php'" class="holocronCircle" style="box-shadow: 0px 0px 9.5vw rgb(255,255,255,.8);">
+              <?php } ?>
+                <div class="holocronText"></div>
+                <img src="img/whitelightsaber.jpg" class="nav__img3">
+                
+              </btn>
+              <?php if($enabled=="motor"){ ?>
+                <btn onclick="window.location='motor.php'" class="holocronCircle" style="box-shadow: 0px 0px 3vw rgb(200,200,255,.9);">
+              <?php }else{ ?>   
+                <btn onclick="window.location='motor.php'" class="holocronCircle" style="box-shadow: 0px 0px 9.5vw rgb(200,200,255,.8);">
+              <?php } ?>
+                <div class="holocronText"></div>
+                <img src="img/r2.jpg" class="nav__img2">
+              </btn>  
+            </div>

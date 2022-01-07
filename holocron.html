@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <!-- CSS Links -->
+    <!-- <link rel="stylesheet" href="css/styleMe.css"> -->
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+
+
+    <!-- Scripts -->
+    <script type="text/javascript" src=""></script>
+
+
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Orbitron">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Exo 2">
+      <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  </head>
+
+ 
+
+  <body>
+    <article id="main-content">
+      <!-- Main Content -->   
+
+      <style>
+
+        @media (orientation: landscape) {
+          #holocronCollection{
+            width:300px;
+            height:300px;
+            position:relative;
+            float:left;
+            margin-left:45px;
+            left:300px;
+            top:-75px;
+          }
+
+          #holocronCollection2{
+            width:300px;
+            height:300px;
+            position:relative;
+            float:left;
+            margin-left:75px;
+            top:0px;
+            left:-100px;
+          }
+          #webcam{
+            position:absolute;
+          }
+          #playNoise{
+            width:50vw;
+            height:50vw;
+            background:red;
+          }
+        }  
+
+
+        @media (orientation: portrait) {
+          #holocronCollection{
+            width:300px;
+            height:300px;
+            position:relative;
+            float:left;
+            margin-left:75px;
+            left:35px;
+            top:200px;
+          }
+
+          #holocronCollection2{
+            width:300px;
+            height:300px;
+            position:relative;
+            float:left;
+            margin-left:75px;
+            top:150px;
+            left:35px;
+          }
+          #webcam{
+            position:absolute;
+          }
+        }  
+
+
+
+        body{
+          background:#222025;
+          z-index:0;
+          /*overflow: hidden;*/
+          background: url(img/starwars.jpg) no-repeat center center fixed; 
+          -webkit-background-size: cover;
+          -moz-background-size: cover;
+          -o-background-size: cover;
+          /*margin: 0;
+          height: 100%;
+          overflow: hidden;*/
+        }
+
+        
+        #worldBetweenWorlds5{
+          position:relative;
+          height:340px;
+          width:340px;
+          top:0px;
+          margin-right:0px;
+          z-index:-1;
+        }
+
+        #worldBetweenWorlds4{
+          position:relative;
+          height:340px;
+          width:340px;
+          top:40px;
+          margin-right:0px;
+          z-index:-1;
+        }
+
+        #worldBetweenWorlds1{
+          position:relative;
+          height:340px;
+          width:340px;
+          top:45px;
+          left:-2.5px;
+          margin-right:0px;
+          z-index:-1;
+        }
+        
+        .holocronCircle{
+          height:150px;
+          width:150px;
+          border-radius: 50%;
+          overflow:hidden;
+          box-shadow: 0px 0px 9.5vw rgb(255,0,0,.8);
+          position: absolute;
+          top:140px;
+          left:95px;
+          cursor:pointer;
+        }
+        
+        .nav__img{
+          transform: translateX(-25%);
+          height:auto;
+          width:230%;
+        }
+        .nav__img2{
+          position:absolute; 
+          left: 55%;
+          top:0%;
+          transform: translateX(-50%);
+          height:auto;
+          width:150%;
+        }
+        .nav__img3{
+          position:absolute; 
+          left: 45%;
+          top:0%;
+          transform: translateX(-50%);
+          height:auto;
+          width:165%;
+        }
+        .nav__img4{
+          position:absolute; 
+          left: 45%;
+          top:0%;
+          transform: translateX(-50%);
+          height:auto;
+          width:100%;
+        }
+        .holocronText{
+          position:relative;
+          top:8vw;
+          color:white;
+        }
+        #power{
+          position:relative;
+          top:0vw;
+          left:1.5vw;
+          width:5vw;
+          height:5vw;
+          background:rgb(90,90,100,.3);
+          border-radius:50%;
+          box-shadow: 0px 0px 1.5vw rgb(255,0,0,.65);
+          transition-duration: 3s;
+        }
+        #power-inner{
+          position:relative;
+          top:1.75vw;
+          left:1.75vw;
+          width:1.5vw;
+          height:1.5vw;
+          background:rgb(100,100,110,0);
+          border-radius:50%;
+          box-shadow: 0px 0px .75vw rgb(255,0,0,.45);
+          transition-duration: 3s;
+        }
+      </style>  
+
+          <div id="back" onclick="window.location='index.html';"> << Back </div>
+        
+  <?php
+    $conn = new mysqli('localhost','mghera','20M@tt02','holocron');
+    $result=$conn->query("SELECT * FROM holocronStatus WHERE 0=0");
+        if($result->num_rows>0){
+            while($rows=$result->fetch_assoc()){
+                $enabled=$rows['Enabled'];
+            }
+        }
+    //echo $enabled;
+      ?>
+
+      <!-- <div type="button" id='playNoise' onclick="window.location.href='playPalpatinesTeachingsStepOne.php'"></div> -->
+
+        <iframe src="http://aquanet.ddnsfree.com:8082" height="250" width="350" id="webcam"></iframe>
+            <!-- red -->
+            <div id="holocronCollection">
+              <?php if($enabled=="red"){ ?>
+                <img src="img/worldBetweenWorlds5On.jpg" id="worldBetweenWorlds5">
+                <btn onclick="btnClick(0);" class="holocronCircle" style="box-shadow: 0vw 0vw 3vw rgb(255,0,0,.9);">
+                  <img src="img/redlightsaber.jpg" class="nav__img">
+                </btn> 
+              <?php }else{ ?>
+                <img src="img/worldBetweenWorlds5.jpg" id="worldBetweenWorlds5">
+                <btn onclick="btnClick(0);" class="holocronCircle">
+                  <img src="img/redlightsaber.jpg" class="nav__img">
+                </btn> 
+              <?php } ?>
+            </div>
+
+
+            <!-- green -->
+            <div id="holocronCollection">
+              <?php if($enabled=="green"){ ?>
+                <img src="img/worldBetweenWorlds4On.jpg" id="worldBetweenWorlds4"> 
+                <btn onclick="btnClick(1);" class="holocronCircle" style="box-shadow: 0px 0px 3vw rgb(0,200,0,.9);">
+                  <img src="img/greenlightsaber.jpg" class="nav__img2">
+                </btn> 
+              <?php }else{ ?>
+                <img src="img/worldBetweenWorlds4.jpg" id="worldBetweenWorlds4"> 
+                <btn onclick="btnClick(1);" class="holocronCircle" style="box-shadow: 0px 0px 9.5vw rgb(0,200,0,.8);">
+                  <img src="img/greenlightsaber.jpg" class="nav__img2">
+                </btn> 
+              <?php } ?>
+            </div> 
+
+
+            <!-- blue -->
+            <div id="holocronCollection">
+              <?php if($enabled=="blue"){ ?>
+                <img src="img/worldBetweenWorlds4On.jpg" id="worldBetweenWorlds4"> 
+                <btn onclick="window.location='blue.php'" class="holocronCircle" style="box-shadow: 0px 0px 3vw rgb(0,0,255,.9);">
+                  <img src="img/bluelightsaber.jpg" class="nav__img2">
+                </btn>
+              <?php }else{ ?>
+                <img src="img/worldBetweenWorlds4.jpg" id="worldBetweenWorlds4"> 
+                <btn onclick="window.location='blue.php'" class="holocronCircle" style="box-shadow: 0px 0px 9.5vw rgb(0,0,255,.8);">
+                  <img src="img/bluelightsaber.jpg" class="nav__img2">
+                </btn>
+              <?php } ?>
+            </div>  
+           
+
+            <!-- magenta -->
+            <div id="holocronCollection">
+              <?php if($enabled=="magenta"){ ?>
+                <img src="img/worldBetweenWorlds1On.jpg" id="worldBetweenWorlds1"> 
+                <btn onclick="window.location='magenta.php'" class="holocronCircle" style="box-shadow: 0px 0px 3vw rgb(255,50,255,.9);">
+                  <img src="img/magentalightsaber.jpg" class="nav__img2">
+                </btn> 
+              <?php }else{ ?>
+                <img src="img/worldBetweenWorlds1.jpg" id="worldBetweenWorlds1"> 
+                <btn onclick="window.location='magenta.php'" class="holocronCircle" style="box-shadow: 0px 0px 9.5vw rgb(255,50,255,.8);">
+                  <img src="img/magentalightsaber.jpg" class="nav__img2">
+                </btn> 
+              <?php } ?>
+            </div>
+
+
+            <!-- lime -->
+            <div id="holocronCollection2">
+              <?php if($enabled=="lime"){ ?>
+                <img src="img/worldBetweenWorlds4On.jpg" id="worldBetweenWorlds4"> 
+                <btn onclick="window.location='lime.php'" class="holocronCircle" style="box-shadow: 0px 0px 3vw rgb(140,255,0,.9);">
+                  <img src="img/limelightsaber.png" class="nav__img4">
+                </btn>
+              <?php }else{ ?>
+                <img src="img/worldBetweenWorlds4.jpg" id="worldBetweenWorlds4"> 
+                <btn onclick="window.location='lime.php'" class="holocronCircle" style="box-shadow: 0px 0px 9.5vw rgb(140,255,0,.8);">
+                  <img src="img/limelightsaber.png" class="nav__img4">
+                </btn>
+              <?php } ?>
+            </div>
+
+
+            <!-- cyan -->
+            <div id="holocronCollection2">
+              <?php if($enabled=="cyan"){ ?>
+                <img src="img/worldBetweenWorlds1On.jpg" id="worldBetweenWorlds1"> 
+                <btn onclick="window.location='cyan.php'" class="holocronCircle" style="box-shadow: 0px 0px 3vw rgb(0,255,255,.9);">
+                  <img src="img/cyanlightsaber.png" class="nav__img2">
+                </btn> 
+              <?php }else{ ?>
+                <img src="img/worldBetweenWorlds1.jpg" id="worldBetweenWorlds1"> 
+                <btn onclick="window.location='cyan.php'" class="holocronCircle" style="box-shadow: 0px 0px 9.5vw rgb(0,255,255,.8);">
+                  <img src="img/cyanlightsaber.png" class="nav__img2">
+                </btn> 
+              <?php } ?>
+            </div>
+
+
+            <!-- white -->
+            <div id="holocronCollection2"> 
+              <?php if($enabled=="white"){ ?>
+                <img src="img/worldBetweenWorlds5On.jpg" id="worldBetweenWorlds5">
+                <btn onclick="window.location='white.php'" class="holocronCircle" style="box-shadow: 0px 0px 3vw rgb(255,255,255,.9);">
+                  <img src="img/whitelightsaber.jpg" class="nav__img3">
+                </btn>
+              <?php }else{ ?>
+                <img src="img/worldBetweenWorlds5.jpg" id="worldBetweenWorlds5">
+                <btn onclick="window.location='white.php'" class="holocronCircle" style="box-shadow: 0px 0px 9.5vw rgb(255,255,255,.8);">
+                  <img src="img/whitelightsaber.jpg" class="nav__img3">
+                </btn>
+              <?php } ?>
+            </div>
+
+
+            <!-- motor -->
+            <div id="holocronCollection2">
+              <?php if($enabled=="motor"){ ?>
+                <img src="img/worldBetweenWorlds1On.jpg" id="worldBetweenWorlds1"> 
+                <btn onclick="window.location='motor.php'" class="holocronCircle" style="box-shadow: 0px 0px 3vw rgb(200,200,255,.9);">
+                  <img src="img/r2.jpg" class="nav__img2">
+                </btn>  
+              <?php }else{ ?>   
+                <img src="img/worldBetweenWorlds1.jpg" id="worldBetweenWorlds1"> 
+                <btn onclick="window.location='motor.php'" class="holocronCircle" style="box-shadow: 0px 0px 9.5vw rgb(200,200,255,.8);">
+                  <img src="img/r2.jpg" class="nav__img2">
+                </btn>  
+              <?php } ?>
+            </div> 
+ 
+
+  
+            <!--background music-->
+            <!-- <iframe width="0%" height="200" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/733351189&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/thomasmsc" title="ThomasM" target="_blank" style="color: #cccccc; text-decoration: none;"></a> · <a href="https://soundcloud.com/thomasmsc/sw-ambient-mix" title="Star Wars - Ambient Mix" target="_blank" style="color: #cccccc; text-decoration: none;"></a></div> -->
+
+            <script>
+              /*var power="off";
+               function togglePower(){
+                  if(power=="on"){
+                    power="off";
+                    //makes power button red
+                    document.getElementById("power").style.boxShadow = "0px 0px 1.5vw rgb(255,0,0,.65)";
+                    document.getElementById("power-inner").style.boxShadow = "0px 0px 1.5vw rgb(255,0,0,.65)";
+                    location.reload();
+                  }else{
+                    power="on";
+                     //makes power button green
+                    document.getElementById("power").style.boxShadow = "0px 0px 1.5vw rgb(0,255,0,.65)";
+                    document.getElementById("power-inner").style.boxShadow = "0px 0px 1.5vw rgb(0,255,0,.65)";
+                    playMusic();
+                  }
+                }
+
+                function playMusic(){
+                    //background music
+                    var audio0 = new Audio("https://www.toneden.io/syneptic/post/star-wars-calm-ambient-mix-by-syneptic-episode-iv");
+                    audio0.play(); 
+                }*/
+
+                var lastBtn=-1;
+
+                function btnClick(x){
+                  lastBtn=x;
+                }
+
+
+                //declare class for hover over sound
+                  let specifics = document.querySelectorAll(".holocronCircle");
+
+                  //array of sounds
+                  let audios = ["otherMaterials/redsound.wav","otherMaterials/greensound.wav","otherMaterials/bluesound.wav","otherMaterials/purplesound.wav","otherMaterials/limesound.wav","otherMaterials/cyansound.wav","otherMaterials/whitesound.wav","otherMaterials/r2sound.wav"];
+
+                  //plays sound on hover
+                  for(i = 0; i < specifics.length; i++){
+                    let specific = specifics[i];
+                    let audio = document.createElement("audio");
+                    audio.src = audios[i];
+                    document.body.appendChild(audio);
+
+                    specific.onclick = () => {
+                        audio.play();
+                        
+                        console.log(lastBtn);
+
+                        if(specific == specifics[0]){
+                          setTimeout(function(){ window.location='red.php'; }, 3000);
+                        }
+                        if(specific == specifics[1]){
+                          setTimeout(function(){ window.location='green.php'; }, 7000);
+                        }
+                        if(specific == specifics[2]){
+                          setTimeout(function(){ window.location='blue.php'; }, 5000);
+                        }
+                        if(specific == specifics[3]){
+                          setTimeout(function(){ window.location='magenta.php'; }, 2500);
+                        }
+                        if(specific == specifics[4]){
+                          setTimeout(function(){ window.location='lime.php'; }, 3000);
+                        }
+                        if(specific == specifics[5]){
+                          setTimeout(function(){ window.location='cyan.php'; }, 3500);
+                        }
+                        if(specific == specifics[6]){
+                          setTimeout(function(){ window.location='white.php'; }, 2500);
+                        }
+                        if(specific == specifics[7]){
+                          setTimeout(function(){ window.location='motor.php'; }, 2000);
+                        }
+                        
+                    }
+                  }
+            </script>  
+      </article>
+  </body>    
+</html>

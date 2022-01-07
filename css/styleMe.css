@@ -1,0 +1,555 @@
+@media (orientation: landscape) {
+  body{
+    background:#222025;
+    z-index:0;
+    overflow: hidden;
+    background: url(../img/greenHex.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+  }
+  #title{
+    position:relative;
+    top:5vw;
+    left:12.5%;
+    color:#33cc33;
+    font-family: 'Orbitron', serif;
+    font-weight:250;
+    font-size:5vw;
+    text-shadow:
+      0 0 .25vw rgb(255,255,255,.8),
+      0 0 .5vw rgb(108, 224, 85,.7),
+      0 0 1vw rgb(92, 208, 69,.6),
+      0 0 2vw rgb(76, 192, 53,.5),
+      0 0 4vw rgb(60, 176, 37,.4),
+      0 0 4.5vw rgb(44, 160, 21,.3),
+      0 0 5vw rgb(28, 144, 5,.2),
+      0 0 7.5vw rgb(12, 128, 0,.1),
+      0 0 10vw rgb(1, 75, 0,.75);
+    }
+  .side{ 
+    position:relative;
+    top:-9.2vw;
+    left:30%;
+    width: 70vw; 
+    height: 50vw; 
+    overflow: hidden;  
+    transform: rotate(180deg);
+  }
+  .side__triangle{
+    position: relative;
+    overflow: hidden;
+    transform: rotate(25deg) skew(10deg,10deg);
+    border-bottom: 1px solid #000;
+    border-right: 1px solid #000;
+    width: 100vw;
+    height: 140vw;
+    margin:-74vw;
+  }
+  .side__pic{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: -8%;
+    left: 0%;
+    z-index: -1;
+    background:url(../img/me2.JPG) no-repeat;
+    background-size: 40%;
+    transform: skew(-10deg,-10deg) rotate(155deg) ;
+    transition: .3s;
+  }
+  .side__pic:hover{ background-size: 45%; }
+  .film{
+    position: absolute;
+    width: 100%;
+    height: 40%;
+    top: 47.5%;
+    left: 10%;
+    z-index: -1;
+    background: linear-gradient(transparent, #222025);
+    background-size: 40%;
+    transform: skew(-10deg,-10deg) rotate(155deg) ;
+    transition: .3s;
+  }
+  #line1{
+    position:relative;
+    top:0vw;
+    left:-2vw;
+    background:green;
+    height:.6vw;
+    width:12vw;
+    transform: skew(-10deg,-10deg) rotate(10deg);
+  }
+  #line2{
+    position:relative;
+    top:.5vw;
+    left:-2.4vw;
+    background:green;
+    height:.6vw;
+    width:12vw;
+    transform: skew(-10deg,-10deg) rotate(10deg);
+  }
+  .hexagon {
+    position: absolute;
+    top:12.25vw;
+    left:24.25vw;
+    width: 20vw; 
+    height: 11.5vw;
+    background-color: green;
+    border-left: solid 2px transparent;
+    border-right: solid 2px transparent;
+    transform:rotate(30deg);
+    font-size: 1.2vw;
+    font-family: 'Exo 2', serif;
+  }
+
+  .hexagon:before,
+  .hexagon:after,
+  .hexagon2:before,
+  .hexagon2:after,
+  .hexagon3:before,
+  .hexagon3:after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    width: 14.1vw;
+    height: 14.1vw;
+    -webkit-transform: scaleY(0.5774) rotate(-45deg);
+    -ms-transform: scaleY(0.5774) rotate(-45deg);
+    transform: scaleY(0.5774) rotate(-45deg);
+    background-color: inherit;
+    left: 2.7vw;
+  }
+
+  .hexagon:before,
+  .hexagon2:before,
+  .hexagon3:before {
+    top: -7.2vw;
+    left:2.8vw;
+    border-top: solid .28vw transparent;
+    border-right: solid .28vw transparent;
+  }
+
+  .hexagon:after,
+  .hexagon2:after,
+  .hexagon3:after {
+    top: 4.2vw;
+    left:2.85vw;
+    border-bottom: solid .28vw transparent;
+    border-left: solid .28vw transparent;
+  }
+
+  .hexagon__text1{
+      position: relative;
+      z-index: 1000;
+      width: 60%;
+      text-align: center;
+      transform:rotate(-30deg);
+      color:white;
+      top:-2.5vw;
+      left:.5vw;
+  }
+  .hexagon__text2,
+  .hexagon__text2-2{
+      position: relative;
+      z-index: 1000;
+      width: 95%;
+      text-align: center;
+      transform:rotate(-30deg);
+      color:white;
+      top:-4vw;
+      left:1.6vw;
+  }
+
+  .hexagon__pic {
+    position:absolute;
+    top:16vw;
+    left:7.1vw;
+    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+    margin: 10px auto;
+    height: 23vw;
+    width: 19.5vw; 
+    transform:rotate(30deg);    
+    overflow:hidden;
+  }
+
+  #hexagon--inside{
+    position:relative;
+    top:-5vw;
+    left:-2.5vw;
+    transform:rotate(-30deg); 
+    height:100%;
+    width:160%;
+  }
+
+  .hexagon__pic2 {
+    position:absolute;
+    top:16vw;
+    left:42.5vw;
+    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+    margin: 10px auto;
+    height: 23vw;
+    width: 19.5vw; 
+    transform:rotate(30deg);    
+    overflow:hidden;
+  }
+
+  #hexagon--inside2{
+    position:relative;
+    top:0vw;
+    left:-3vw;
+    transform:rotate(-30deg); 
+    height:100%;
+    width:150%;
+  }
+
+  .hexagon__pic3 {
+    position:absolute;
+    top:5.3vw;
+    left:60vw;
+    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+    margin: 10px auto;
+    height: 23vw;
+    width: 19.5vw; 
+    transform:rotate(30deg);    
+    overflow:hidden;
+  }
+
+  #hexagon--inside3{
+    position:relative;
+    top:0vw;
+    left:-2vw;
+    transform:rotate(-30deg); 
+    height:100%;
+    width:120%;
+  }
+
+  #back{
+    position:absolute;
+    top:1vw;
+    color:rgb(200,250,200);
+    font-size:2.5vw;
+    font-family: 'Orbitron', serif;
+    margin-left:2.5vw;
+    cursor:pointer;
+  }
+}  
+
+
+
+@media (orientation: portrait) {
+  body{
+        background:#222025;
+        z-index:0;
+        overflow-x: hidden;
+        background: url(../img/greenHex.jpg) no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        
+
+      }
+      #title{
+        position:relative;
+        top:5vw;
+        left:8%;
+        color:#33cc33;
+        font-family: 'Orbitron', serif;
+        font-weight:250;
+        font-size:13vw;
+        text-shadow:
+          0 0 .25vw rgb(255,255,255,.8),
+          0 0 .5vw rgb(108, 224, 85,.7),
+          0 0 1vw rgb(92, 208, 69,.6),
+          0 0 2vw rgb(76, 192, 53,.5),
+          0 0 4vw rgb(60, 176, 37,.4),
+          0 0 4.5vw rgb(44, 160, 21,.3),
+          0 0 5vw rgb(28, 144, 5,.2),
+          0 0 7.5vw rgb(12, 128, 0,.1),
+          0 0 10vw rgb(1, 75, 0,.75);
+      }
+
+      #line1{
+        position:relative;
+        top:0vw;
+        left:-2vw;
+        background:green;
+        height:1.2vw;
+        width:23vw;
+        transform: skew(-10deg,-10deg) rotate(10deg);
+      }
+      #line2{
+        position:relative;
+        top:1vw;
+        left:-2.4vw;
+        background:green;
+        height:1.2vw;
+        width:23vw;
+        transform: skew(-10deg,-10deg) rotate(10deg);
+      }
+
+    .side{ 
+      position:relative;
+      top:-20vw;
+      left:41%;
+      width: 70vw; 
+      height: 100vw; 
+      overflow: hidden;  
+      transform: rotate(180deg);
+    }
+
+  .side__triangle{
+    position: relative;
+    overflow: hidden;
+    transform: rotate(25deg) skew(10deg,10deg);
+    border-bottom: 1px solid #000;
+    border-right: 1px solid #000;
+    width: 100vw;
+    height: 250vw;
+    margin:-74vw;
+  }
+  .side__pic{
+    position: absolute;
+    width: 85%;
+    height: 85%;
+    top: -40vw;
+    left: 30vw;
+    z-index: -1;
+    background:url(../img/me2.JPG) no-repeat;
+    background-size: 100%;
+    transform: skew(-10deg,-10deg) rotate(155deg) ;
+    transition: .3s;
+  }
+
+  .film{
+    position: absolute;
+    width: 100%;
+    height: 45%;
+    top: 23%;
+    left: 20%;
+    z-index: -1;
+    background: linear-gradient(transparent, #222);
+    background-size: 40%;
+    transform: skew(-10deg,-10deg) rotate(155deg) ;
+    transition: .3s;
+  }
+
+
+  /*.hexagon {
+    position: absolute;
+    width: 30vw; 
+    height: 17.3vw;
+    background-color: green;
+    top:20vw;
+    left:20vw;
+    transform:rotate(-30deg);
+    border:.0001vw solid transparent;
+  }
+
+  .hexagon:before,
+  .hexagon:after {
+    content: "";
+    position: relative;
+    width: 0;
+    border-left: 15vw solid transparent;
+    border-right: 15vw solid transparent;
+  }
+
+  .hexagon:before {
+    top:-9.77vw;
+    bottom: 100%;
+    border-bottom: 8.6vw solid green;
+  }
+
+  .hexagon:after {
+    top: 10.965vw;
+    left:0vw;
+    width: 0;
+    border-top: 8.6vw solid green;
+  }
+
+  .hexagon__text{
+    position:relative;
+    font-size:1.5vw;
+    color:white;
+    transform:rotate(30deg);
+    top:-5vw;
+    left:20%;
+  }*/
+
+  .hexagon {
+    position: absolute;
+    top:25vh;
+    left:5vw;
+    width: 45vw; 
+    height: 25vw;
+    background-color: green;
+    border-left: solid 2px transparent;
+    border-right: solid 2px transparent;
+    transform:rotate(30deg);
+  }
+
+  .hexagon:before,
+  .hexagon:after,
+  .hexagon2:before,
+  .hexagon2:after,
+  .hexagon3:before,
+  .hexagon3:after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    width: 32vw;
+    height: 32vw;
+    -webkit-transform: scaleY(0.5774) rotate(-45deg);
+    -ms-transform: scaleY(0.5774) rotate(-45deg);
+    transform: scaleY(0.5774) rotate(-45deg);
+    background-color: inherit;
+    left: 2.7vw;
+  }
+
+  .hexagon:before,
+  .hexagon2:before,
+  .hexagon3:before {
+    top: -16vw;
+    left:6.5vw;
+    border-top: solid .28vw transparent;
+    border-right: solid .28vw transparent;
+  }
+
+  .hexagon:after,
+  .hexagon2:after,
+  .hexagon3:after {
+    top: 9vw;
+    left:6.5vw;
+    border-bottom: solid .28vw transparent;
+    border-left: solid .28vw transparent;
+  }
+
+
+
+  .hexagon2 {
+    position: absolute;
+    top:112vw;
+    left:47.5vw;
+    width: 45vw; 
+    height: 25vw;
+    background-color: green;
+    border-left: solid 2px transparent;
+    border-right: solid 2px transparent;
+    transform:rotate(30deg);
+  }
+
+  .hexagon__text1{
+      position: relative;
+      z-index: 1000;
+      width: 60%;
+      text-align: center;
+      transform:rotate(-30deg);
+      color:white;
+      top:-4vw;
+      left:1.5vw;
+      font-size:2.4vw;
+      font-family: 'Exo 2', serif;
+  }
+  .hexagon__text2{
+      position: relative;
+      z-index: 1000;
+      width: 95%;
+      text-align: center;
+      transform:rotate(-30deg);
+      color:white;
+      top:-5.5vw;
+      left:0vw;
+      font-size:2.4vw;
+      font-family: 'Exo 2', serif;
+  }
+  .hexagon__text2-2{
+      position: relative;
+      z-index: 1000;
+      width: 95%;
+      text-align: center;
+      transform:rotate(-30deg);
+      color:white;
+      top:-6vw;
+      left:.75vw;
+      font-size:2.4vw;
+      font-family: 'Exo 2', serif;
+  }
+  .hexagon__text3{
+      position: relative;
+      z-index: 1000;
+      width: 70%;
+      text-align: center;
+      transform:rotate(-30deg);
+      color:white;
+      top:-7vw;
+      left:13vw;
+      font-size:2.4vw;
+      font-family: 'Exo 2', serif;
+  }
+  .hexagon__text3-2{
+      position: relative;
+      z-index: 1000;
+      width: 70%;
+      text-align: center;
+      transform:rotate(-30deg);
+      color:white;
+      top:-7vw;
+      left:12vw;
+      font-size:2.4vw;
+      font-family: 'Exo 2', serif;
+  }
+
+
+  .hexagon__pic {
+    position:absolute;
+    top:76.5vw;
+    left:6vw;
+    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+    margin: 10px auto;
+    height: 50vw;
+    width: 45vw; 
+    transform:rotate(28.5deg);    
+    overflow:hidden;
+  }
+
+  #hexagon--inside{
+    position:relative;
+    top:-5vw;
+    left:0vw;
+    transform:rotate(-28.5deg); 
+    height:100%;
+    width:160%;
+  }
+
+  .hexagon__pic2 {
+    position:absolute;
+    top:143.5vw;
+    left:49vw;
+    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+    margin: 10px auto;
+    height: 50vw;
+    width: 45vw; 
+    transform:rotate(28.5deg);    
+    overflow:hidden;
+  }
+
+  #hexagon--inside2{
+    position:relative;
+    top:0vw;
+    left:-3vw;
+    transform:rotate(-28.5deg); 
+    height:100%;
+    width:150%;
+  }
+
+  #back{
+    position:absolute;
+    top:1vw;
+    color:rgb(200,250,200);
+    font-size:4.5vw;
+    font-family: 'Orbitron', serif;
+    margin-left:2.5vw;
+    cursor:pointer;
+  }
+}  

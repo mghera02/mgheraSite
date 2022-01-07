@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <!-- CSS Links -->
+    <!-- <link rel="stylesheet" href="css/styleMe.css"> -->
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+
+
+    <!-- Scripts -->
+    <script type="text/javascript" src=""></script>
+
+
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Orbitron">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Exo 2">
+
+  </head>
+
+ 
+
+  <body>
+    <article id="main-content">
+      <!-- Main Content -->   
+
+      <style>
+        body{
+          background:#222025;
+          z-index:0;
+          overflow: hidden;
+          background: url(img/tavern1.jpg) no-repeat center center fixed; 
+          -webkit-background-size: cover;
+          -moz-background-size: cover;
+          -o-background-size: cover;
+        }
+
+        #light{
+          position:relative;
+          top:-2vw;
+          left:89%;
+          height:18vw;
+          width:12vw;
+          cursor:pointer;
+        }
+
+        #holocron{
+          position:relative;
+          top:0vw;
+          left:20%;
+          height:12vw;
+          width:12vw;
+          cursor:pointer;
+          filter: brightness(35%);
+        }
+       
+      </style>  
+
+          <div id="back" onclick="window.location='index.html';"> << Back </div>
+          <img id="light" src="img/tavern3.png" onclick="toggleLight()">
+
+          <img id="holocron" src="img/holocron.png" onclick="window.location=
+          'holocron.php'">
+
+
+      </article>
+
+      <script>
+        var x=0;
+        function toggleLight(){
+          if(x%2==0){
+            document.body.style.background = "url(img/tavern12.jpg) no-repeat center center fixed";
+            document.getElementById("light").src ="img/tavern2.png";
+            document.getElementById("holocron").style.filter ="brightness(100%)";
+          }else{
+            document.body.style.background = "url(img/tavern1.jpg) no-repeat center center fixed";
+            document.getElementById("light").src ="img/tavern3.png";
+            document.getElementById("holocron").style.filter ="brightness(35%)";
+          }
+          x++;
+        }
+      </script>  
+
+  </body>    
+</html>

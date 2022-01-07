@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <!-- CSS Links -->
+   
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src='http://code.jquery.com/jquery-3.3.1.slim.min.js'></script>
+<script src="jQuery.Keyframes-master/dist/jquery.keyframes.min.js"></script>
+
+	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="css/"> -->
+
+  </head>
+
+ <style>
+    html, body {
+        margin: 0;
+        height: 100%;
+        overflow: hidden;
+        background:rgb(250,210,250);
+      }
+    #outerGame{
+      position:absolute;
+      height:420px;
+      width:180px;
+      top:70px;
+      left:30px;
+      padding:10px;
+      background:rgb(160,30,40);
+    }  
+    #game{
+      position:absolute;
+      background:grey;
+      height:350px;
+      width:180px;
+      top:10px;
+      overflow: hidden;
+      display:inline-block;
+    }
+    #car{
+      position:relative;
+      top:305px;
+      left:70px;
+      background:rgb(0,0,0,0);
+      width:40px;
+      height:40px;
+      z-index:1;
+    }
+    #picInside{
+      position:relative;
+      height:240%;
+      top:-25px;
+      left:-27.5px;
+    }
+    #obstacle{
+      position:absolute;
+      left: 10px;
+      top:-80px;
+      height:40px;
+      width:40px;
+      background:rgb(0,0,0,0);
+      z-index:1;
+    }
+    #obstacleTwo{
+      position:absolute;
+      left: 70px;
+      top:-80px;
+      height:40px;
+      width:40px;
+      background:rgb(0,0,0,0);
+      z-index:1;
+    }
+    #obstacleThree{
+      position:absolute;
+      left: 130px;
+      top:-80px;
+      height:40px;
+      width:40px;
+      background:rgb(0,0,0,0);
+      z-index:1;
+    }
+    #gasInside{
+      position:relative;
+      height:117%;
+      top:0px;
+      left:-5px;
+    }
+    #obstacleFour{
+      position:absolute;
+      left: 130px;
+      top:-80px;
+      height:40px;
+      width:40px;
+      background:rgb(0,0,0,0);
+      z-index:1;
+    }
+    #gasPercent{
+      position:relative;
+      top:10px;
+      color:white;
+      font-family: 'Press Start 2P', cursive;
+      text-align:center;
+    }
+
+    #speedPercent{
+      position:relative;
+      top:20px;
+      color:white;
+      font-family: 'Press Start 2P', cursive;
+      text-align:center;
+    }
+
+  #title{
+    color:blue;
+    position:relative;
+    top:5px;
+  }
+  #content{
+    position:relative;
+    top:5px;
+    margin-bottom:0px;
+  }
+  #content2{
+    position:relative;
+    top:5px;
+    margin-bottom:0px;
+  }
+  #popup{
+      width:150px;
+      height:150px;
+      background:rgb(40,200,100);
+      z-index:3;
+      position:absolute;
+      top:100px;
+      left:12.5px;
+      display:none;
+      color:white;
+      font-size:10px;
+      text-align: center;
+      font-family: 'Press Start 2P', cursive;
+      line-height:30px;
+    }
+  
+    #close,
+    #close0{
+      position:relative;
+      top:10%;
+      color:rgb(150,0,0);
+      font-weight: bold;
+      cursor:pointer;
+    }
+
+    #greyBackground{
+      position:absolute;
+      top:-50px;
+      display:none;
+      width:300px;
+      height:500px;
+      background:rgb(0,0,0,.5);
+    }
+    #console{
+      background:rgb(40,200,100);
+      width:180px;
+      height:70px;
+      position:absolute;
+      top:360px;
+      left:10px;
+    }
+
+    #background{
+      position:relative;
+      top:25px;
+      left:-250px;
+      height:700px;
+      width:375%;
+      z-index:0;
+      animation: slide 2s linear infinite;
+    }
+
+    @keyframes slide{
+  0%{
+    transform: translate3d(0, -190px, 0);
+  }
+  100%{
+    transform: translate3d(0px, -410px, 0);
+  }
+}
+
+#popup0{
+  width:130px;
+  height:170px;
+  background:rgb(40,200,100);
+  z-index:3;
+  position:absolute;
+  top:25%;
+  left:22.5px;
+  display:none;
+  color:white;
+  font-size:17px;
+  text-align: center;
+  font-family: 'Press Start 2P', cursive;
+  line-height:25px;
+}  
+#close{
+  position:relative;
+  top:30px;
+  color:rgb(150,0,0);
+  font-weight: bold;
+  cursor:pointer;
+}
+#back{
+  cursor:pointer;
+  font-family: 'Press Start 2P', cursive;
+  font-size:15px;
+  top:30px;
+  color:rgb(150,0,0);
+  position:relative;
+  left:2.5%;
+}
+#leftBtn,
+#rightBtn{
+  display:none;
+}
+
+@media (orientation: portrait) {
+  #leftBtn{
+    position:relative;
+    background:rgb(40,200,100);
+    top:855px;
+    left:40px;
+    width:160px;
+    height:150px;
+    border:solid 10px;
+    border-color:rgb(10,100,20);
+    color:white;
+    font-size:100px;
+    font-weight:900;
+    text-align:center;
+    padding-top:10px;
+  }
+  #rightBtn{
+    position:relative;
+    background:rgb(40,200,100);
+    top:675px;
+    left:220px;
+    width:160px;
+    height:150px;
+    border:solid 10px;
+    border-color:rgb(10,100,20);
+    color:white;
+    font-size:100px;
+    font-weight:900;
+    text-align:center;
+    padding-top:10px;
+  }
+
+
+  #outerGame{
+      position:absolute;
+      height:970px;
+      width:360px;
+      top:70px;
+      left:30px;
+      padding:10px;
+      background:rgb(160,30,40);
+    }  
+    #game{
+      position:absolute;
+      background:grey;
+      height:700px;
+      width:360px;
+      top:10px;
+      overflow: hidden;
+      display:inline-block;
+    }
+    #car{
+      position:relative;
+      top:570px;
+      left:108px;
+      background:rgb(0,0,0,0);
+      width:80px;
+      height:80px;
+      z-index:1;
+    }
+    #picInside{
+      position:relative;
+      height:240%;
+      top:-25px;
+      left:-27.5px;
+    }
+    #obstacle{
+      position:absolute;
+      left: 10px;
+      top:-110px;
+      width:80px;
+      height:80px;
+      background:rgb(0,0,0,0);
+      z-index:1;
+    }
+    #obstacleTwo{
+      position:absolute;
+      left: 70px;
+      top:-110px;
+      width:80px;
+      height:80px;
+      background:rgb(0,0,0,0);
+      z-index:1;
+    }
+    #obstacleThree{
+      position:absolute;
+      left: 130px;
+      top:-110px;
+      width:80px;
+      height:80px;
+      background:rgb(0,0,0,0);
+      z-index:1;
+    }
+    #gasInside{
+      position:relative;
+      height:117%;
+      top:0px;
+      left:15px;
+    }
+    #obstacleFour{
+      position:absolute;
+      left: 130px;
+      top:-110px;
+      width:80px;
+      height:80px;
+      background:rgb(0,0,0,0);
+      z-index:1;
+    }
+    #gasPercent{
+      position:relative;
+      top:20px;
+      color:white;
+      font-family: 'Press Start 2P', cursive;
+      text-align:center;
+      font-size:24px;
+    }
+
+    #speedPercent{
+      position:relative;
+      top:30px;
+      color:white;
+      font-family: 'Press Start 2P', cursive;
+      text-align:center;
+      font-size:24px;
+    }
+
+  #title{
+    color:blue;
+    position:relative;
+    top:20px;
+    font-size:35px;
+  }
+  #content{
+    position:relative;
+    top:50px;
+    margin-bottom:0px;
+    font-size:20px;
+  }
+  #content2{
+    position:relative;
+    top:50px;
+    margin-bottom:0px;
+    font-size:20px;
+  }
+  #popup{
+      width:320px;
+      height:300px;
+      background:rgb(40,200,100);
+      z-index:3;
+      position:absolute;
+      top:100px;
+      left:12.5px;
+      display:none;
+      color:white;
+      font-size:10px;
+      text-align: center;
+      font-family: 'Press Start 2P', cursive;
+      line-height:30px;
+    }
+  
+    #close{
+      position:relative;
+      top:100px;
+      color:rgb(150,0,0);
+      font-weight: bold;
+      cursor:pointer;
+      font-size:20px;
+    }
+
+    #greyBackground{
+      position:absolute;
+      top:-50px;
+      display:none;
+      width:500px;
+      height:1000px;
+      background:rgb(0,0,0,.5);
+    }
+    #console{
+      background:rgb(40,200,100);
+      width:360px;
+      height:100px;
+      position:absolute;
+      top:700px;
+      left:10px;
+    }
+
+    #background{
+      position:relative;
+      top:25px;
+      left:-500px;
+      height:1500px;
+      width:375%;
+      z-index:0;
+      animation: slide 1s linear infinite;
+    }
+
+    @keyframes slide{
+      0%{
+        transform: translate3d(0, -400px, 0);
+      }
+      100%{
+        transform: translate3d(0px, -810px, 0);
+      }
+    }
+
+#popup0{
+  width:300px;
+  height:220px;
+  background:rgb(40,200,100);
+  z-index:3;
+  position:absolute;
+  top:25%;
+  left:22.5px;
+  display:none;
+  color:white;
+  font-size:17px;
+  text-align: center;
+  font-family: 'Press Start 2P', cursive;
+  line-height:25px;
+}  
+#info0{
+  position:relative;
+  top:20px;
+  margin-bottom:10px;
+}
+#close0{
+  position:relative;
+  top:30px;
+  color:rgb(150,0,0);
+  font-weight: bold;
+  cursor:pointer;
+}
+#back{
+  cursor:pointer;
+  font-family: 'Press Start 2P', cursive;
+  font-size:15px;
+  top:30px;
+  color:rgb(150,0,0);
+  position:relative;
+  left:2.5%;
+}
+
+
+
+}  
+ </style> 
+  
+
+
+  <body>
+    <div id="back" onclick="window.location='gameHub.html'">Back to Selection Screen << </div>
+    <div id="outerGame">
+      	<div id="game">
+          	<div id="car">
+              <img src="gameMedia/mainCar.png" id="picInside"> 
+            </div>
+            <div id="obstacle">
+              <img src="gameMedia/enemyCar2.png" id="picInside"> 
+            </div>
+            <div id="obstacleTwo">
+              <img src="gameMedia/enemyCar3.png" id="picInside"> 
+            </div>
+            <div id="obstacleThree">
+              <img src="gameMedia/gas.png" id="gasInside"> 
+            </div>
+             <div id="obstacleFour">
+               <img src="gameMedia/enemyCar1.png" id="picInside"> 
+             </div>
+
+             <img src="gameMedia/road.png" id="background">
+
+            <div id="greyBackground"></div>
+            <div id="popup">
+              <div id="title">You Died!</div>
+              <div id="content"></div>
+              <div id="content2"></div>
+              <div id="close" onclick="location.reload();">Play Again</div>
+            </div> 
+
+            <div id="popup0">
+              <div id="info0"></div>
+              <btn id="close0" onclick="startGame()">START</btn>
+            </div>
+        </div>
+        <div id="console">
+          <div id="gasPercent">Gas:100%</div>
+          <div id="speedPercent">Speed:0%</div>
+        </div>  
+    </div>  
+    <div id="leftBtn" onclick="goLeft()">&#8592;</div>	
+    <div id="rightBtn" onclick="goRight()">&#8594;</div> 
+<audio id="dieSound" src="gameMedia/super effective.wav" preload="auto"></audio>
+<audio id="gasSound" src="gameMedia/cash sound.wav" preload="auto"></audio>
+
+
+
+<script>
+  //variable defining
+  var carPos=1;
+  var sec=1;
+  var counter=1;
+  var temp;
+  var obsArrang=[-1,-1];
+  var gas=100;
+  var speed=0;
+  var numObs;
+  var firstPlace=1;
+  var secondPlace=-1;
+  var score=0;
+  arrangeArr=[];
+
+
+  //beginning popup 1
+    document.getElementById("popup0").style.display= "block";
+      if (window.orientation==0 || window.orientation==180){
+        document.getElementById("info0").innerHTML = "TO DECREASE LAG, PLEASE USE A NON-MOBILE DEVICE. Press below to start.";
+      }else{
+        document.getElementById("info0").innerHTML = "Press below to start";
+      }
+
+
+    function startGame(){
+      document.getElementById("popup0").style.display= "none";
+  //arrow controls
+  document.body.onkeydown = function(e){
+    if(e.keyCode == 37){
+      if(carPos!=0){
+        carPos--;
+        if (window.orientation==0 || window.orientation==180){
+          document.getElementById("car").style.left=carPos*100+10+"px";
+        }else{
+          document.getElementById("car").style.left=carPos*60+10+"px";
+        }
+      }
+    }
+    if(e.keyCode == 39){
+      if(carPos!=2){
+        carPos++;
+         if (window.orientation==0 || window.orientation==180){
+          document.getElementById("car").style.left=carPos*100+10+"px";
+        }else{
+          document.getElementById("car").style.left=carPos*60+10+"px";
+        }  
+      }
+    }
+  }
+
+  //creates animation for all obstacles
+  if (window.orientation==0 || window.orientation==180){
+    $.keyframe.define({
+      name: 'animObs',
+      from: {
+        'top': '-100px'
+      },
+      to: {
+        'top': '700px'
+      }
+    });
+  }else{
+    $.keyframe.define({
+      name: 'animObs',
+      from: {
+        'top': '-80px'
+      },
+      to: {
+        'top': '350px'
+      }
+    });
+  }  
+
+  playAnim(sec);
+
+  function playAnim(sec){
+    //increases speed shown on screen
+    speed=Math.round((1.5*Math.log10(.2*counter+.04)+1.05)/3*100);
+    document.getElementById("speedPercent").innerHTML="Speed:"+ speed +"%";
+
+    //moves obstacle one
+    $("#obstacle").playKeyframe({
+      name: 'animObs', // name of the keyframe you want to bind to the selected element
+      duration: sec+'s', // [optional, default: 0, in ms] how long you want it to last in milliseconds
+      timingFunction: 'linear', // [optional, default: ease] specifies the speed curve of the animation
+      delay: '0s', //[optional, default: 0s]  how long you want to wait before the animation starts
+      iterationCount: 'infinite', //[optional, default:1]  how many times you want the animation to repeat
+      direction: 'normal', //[optional, default: 'normal']  which direction you want the frames to flow
+      fillMode: 'forwards', //[optional, default: 'forward']  how to apply the styles outside the animation time, default value is forwards
+      complete: function(){
+        //increases speed and moves obstacle one where it should be
+        counter++;
+        sec=1/(Math.log10(.3*counter+1.5));
+        obsArrang=createArrang();
+        console.log(obsArrang);
+        if(obsArrang[0]==0){
+          if (window.orientation==0 || window.orientation==180){
+            document.getElementById("obstacle").style.left="10px";
+          }else{
+            document.getElementById("obstacle").style.left="10px";
+          }  
+        }else if(obsArrang[0]==1){
+          if (window.orientation==0 || window.orientation==180){
+            document.getElementById("obstacle").style.left="110px";
+          }else{
+            document.getElementById("obstacle").style.left="70px";
+          }  
+        }else{
+          if (window.orientation==0 || window.orientation==180){
+            document.getElementById("obstacle").style.left="210px";
+          }else{
+            document.getElementById("obstacle").style.left="130px";
+          }  
+        }
+
+        //moves obstacle 2 where it should be
+        if(obsArrang[1]>-1){
+          if(obsArrang[1]==0){
+            if (window.orientation==0 || window.orientation==180){
+              document.getElementById("obstacleTwo").style.left="10px";
+            }else{
+              document.getElementById("obstacleTwo").style.left="10px";
+            }  
+          }else if(obsArrang[1]==1){
+            if (window.orientation==0 || window.orientation==180){
+              document.getElementById("obstacleTwo").style.left="110px";
+            }else{
+              document.getElementById("obstacleTwo").style.left="70px";
+            }  
+          }else{
+            if (window.orientation==0 || window.orientation==180){
+              document.getElementById("obstacleTwo").style.left="210px";
+            }else{
+              document.getElementById("obstacleTwo").style.left="130px";
+            }  
+          }
+          //moves obstacle two
+          $("#obstacleTwo").playKeyframe({
+            name: 'animObs', // name of the keyframe you want to bind to the selected element
+            duration: sec+'s', // [optional, default: 0, in ms] how long you want it to last in milliseconds
+            timingFunction: 'linear', // [optional, default: ease] specifies the speed curve of the animation
+            delay: '0s', //[optional, default: 0s]  how long you want to wait before the animation starts
+            iterationCount: 'infinite', //[optional, default:1]  how many times you want the animation to repeat
+            direction: 'normal', //[optional, default: 'normal']  which direction you want the frames to flow
+            fillMode: 'forwards', //[optional, default: 'forward']  how to apply the styles outside the animation time, default value is forwards
+          });
+        }else{
+          document.getElementById("obstacleTwo").style.left="-100px";
+        }
+
+        playAnim(sec);
+        //setTimeout(function(){playAnim2(sec);} , (sec/4)*1000);
+        //setTimeout(function(){playAnim3(sec);} , (3*sec/5)*1000);
+      } //[optional] Function fired after the animation is complete. If repeat is infinite, the function will be fired every time the animation is restarted.
+    });
+  }
+
+
+  //move obstacle three delayed
+  function playAnim2(sec){
+    sec=1/(Math.log10(.3*counter+1.6));
+    gasPlace=Math.floor(Math.random() * (2 - 0 + 1) ) + 0;
+    if(gasPlace==0){
+      if (window.orientation==0 || window.orientation==180){
+        document.getElementById("obstacleThree").style.left="10px";
+      }else{
+        document.getElementById("obstacleThree").style.left="10px";
+      }  
+    }else if(gasPlace==1){
+      if (window.orientation==0 || window.orientation==180){
+        document.getElementById("obstacleThree").style.left="110px";
+      }else{
+        document.getElementById("obstacleThree").style.left="70px";
+      }  
+    }else{
+      if (window.orientation==0 || window.orientation==180){
+        document.getElementById("obstacleThree").style.left="210px";
+      }else{
+        document.getElementById("obstacleThree").style.left="130px";
+      }  
+    }
+    $("#obstacleThree").playKeyframe({
+      name: 'animObs', // name of the keyframe you want to bind to the selected element
+      duration: (sec)+'s', // [optional, default: 0, in ms] how long you want it to last in milliseconds
+      timingFunction: 'linear', // [optional, default: ease] specifies the speed curve of the animation
+      delay: '0s', //[optional, default: 0s]  how long you want to wait before the animation starts
+      iterationCount: 1, //[optional, default:1]  how many times you want the animation to repeat
+      direction: 'normal', //[optional, default: 'normal']  which direction you want the frames to flow
+      fillMode: 'forwards', //[optional, default: 'forward']  how to apply the styles outside the animation time, default value is forwards
+      complete: function(){
+        playAnim2(sec);
+      } 
+    });
+  }
+
+  //move obstacle four delayed
+  function playAnim3(sec){
+    sec=1/(Math.log10(.3*counter+1.6));
+    enemyPlace=Math.floor(Math.random() * (2 - 0 + 1) ) + 0;
+    if(enemyPlace==0){
+      if (window.orientation==0 || window.orientation==180){
+        document.getElementById("obstacleFour").style.left="10px";
+      }else{
+        document.getElementById("obstacleFour").style.left="10px";
+      }  
+    }else if(enemyPlace==1){
+      if (window.orientation==0 || window.orientation==180){
+        document.getElementById("obstacleFour").style.left="110px";
+      }else{
+        document.getElementById("obstacleFour").style.left="70px";
+      }  
+    }else{
+      if (window.orientation==0 || window.orientation==180){
+        document.getElementById("obstacleFour").style.left="210px";
+      }else{
+        document.getElementById("obstacleFour").style.left="130px";
+      }  
+    }
+    $("#obstacleFour").playKeyframe({
+      name: 'animObs', // name of the keyframe you want to bind to the selected element
+      duration: sec+'s', // [optional, default: 0, in ms] how long you want it to last in milliseconds
+      timingFunction: 'linear', // [optional, default: ease] specifies the speed curve of the animation
+      delay: '0s', //[optional, default: 0s]  how long you want to wait before the animation starts
+      iterationCount: 1, //[optional, default:1]  how many times you want the animation to repeat
+      direction: 'normal', //[optional, default: 'normal']  which direction you want the frames to flow
+      fillMode: 'forwards', //[optional, default: 'forward']  how to apply the styles outside the animation time, default value is forwards
+      complete: function(){
+        playAnim3(sec);
+      } 
+    });
+  }
+
+
+  
+  function createArrang(){
+     numObs=Math.floor(Math.random() * (4 - 1 + 1) ) + 1;
+     if(numObs>2){
+        numObs=2;
+     }
+     if(numObs==2){
+        secondPlace=Math.floor(Math.random() * (2 - 0 + 1) ) + 0;
+     }else{
+      secondPlace=-1;
+     }
+     while(firstPlace==secondPlace){
+        firstPlace=Math.floor(Math.random() * (2 - 0 + 1) ) + 0;
+     }
+     arrangeArr=[firstPlace,secondPlace];
+     return arrangeArr;
+  }
+
+
+  decGas = setInterval(function(){
+    if(counter>1){
+      gas--;
+    }
+    score++;
+    document.getElementById("gasPercent").innerHTML="Gas:"+ gas +"%";
+    if(gas<=0){
+      setTimeout(function(){
+        //alert("hit: Your position: "+ car.top + ", " + car.left + ". Opponent position ("+obstacle.id+"): "+ obs.bottom + ", " + obs.left);
+        stopAll();
+        var currHigh=localStorage.getItem('highscoreRace');
+        if(currHigh<score){
+          localStorage.setItem('highscoreRace', score);
+        }
+        document.getElementById("content").innerHTML="Score:"+score;
+        document.getElementById("content2").innerHTML="High score:"+currHigh; 
+        document.getElementById("popup").style.display="block";
+        document.getElementById("greyBackground").style.display="block";
+      } ,20);
+    }
+  },200);
+
+  checkGasCollision = setInterval(function(){
+    var getGas=collision(document.getElementById("obstacleThree"), document.getElementById("car"));
+    var gasSound = document.getElementById("gasSound");
+    gasSound.volume = 0.05;
+    if(getGas && gas<91){
+      if(counter>30){
+        gas=gas+3;
+      }else if(counter>20){
+        gas=gas+5;
+      }else{
+        gas=gas+9;
+      }
+      document.getElementById("gasPercent").innerHTML="Gas:"+ gas +"%";
+      gasSound.play();
+    }else if(getGas){
+      gas=100;
+      gasSound.play();
+    }
+    getGas=false;
+
+    collision(document.getElementById("obstacle"), document.getElementById("car"));
+    collision(document.getElementById("obstacleTwo"), document.getElementById("car"));
+    collision(document.getElementById("obstacleFour"), document.getElementById("car"));
+  },10);
+
+  makeObsThree = setInterval(function(){
+    obs1=document.getElementById("obstacle").getBoundingClientRect();
+    if(obs1.bottom>300 && counter==2){
+       playAnim2(sec);
+       clearInterval(makeObsThree);
+    }
+  },50);
+
+
+  makeObsFour = setInterval(function(){
+    obs1=document.getElementById("obstacle").getBoundingClientRect();
+    if(obs1.bottom>500 && counter==2){
+       playAnim3(sec);
+       clearInterval(makeObsFour);
+    }
+  },50);
+
+
+  function collision(obstacle, car) {
+    obs=obstacle.getBoundingClientRect();
+    car=car.getBoundingClientRect();
+    if(car.top<obs.bottom &&  car.left==obs.left && obstacle.id=="obstacleThree"){
+      console.log("more gas");
+      obstacle.style.left="-100px";
+      return true;
+    }
+
+    if(car.top<obs.bottom && car.bottom>obs.top &&  car.left==obs.left && obstacle.id!="obstacleThree"){
+      document.getElementById('dieSound').play();
+      setTimeout(function(){
+        //alert("hit: Your position: "+ car.top + ", " + car.left + ". Opponent position ("+obstacle.id+"): "+ obs.bottom + ", " + obs.left);
+        stopAll();
+        var currHigh=localStorage.getItem('highscoreRace');
+        if(currHigh<score){
+          localStorage.setItem('highscoreRace', score);
+        }
+        document.getElementById("content").innerHTML="Score:"+score;
+        document.getElementById("content2").innerHTML="High score:"+currHigh; 
+        document.getElementById("popup").style.display="block";
+        document.getElementById("greyBackground").style.display="block";
+      } ,20);
+    }
+
+    /*if(car.top<obs.bottom && car.left==obs.left && obstacle.id!="obstacleThree" && obstacle.id=="obstacleFour"){
+      setTimeout(function(){alert("hit: Your position: "+ car.top + ", " + car.left + ". Opponent position ("+obstacle.id+"): "+ obs.bottom + ", " + obs.left);} , 20);
+    }*/
+  };
+
+  function stopAll(){
+      $("#obstacleTwo").playKeyframe({
+            name: '', // name of the keyframe you want to bind to the selected element
+            duration: '0s', // [optional, default: 0, in ms] how long you want it to last in milliseconds
+            timingFunction: 'linear', // [optional, default: ease] specifies the speed curve of the animation
+            delay: '0s', //[optional, default: 0s]  how long you want to wait before the animation starts
+            iterationCount: 'infinite', //[optional, default:1]  how many times you want the animation to repeat
+            direction: 'normal', //[optional, default: 'normal']  which direction you want the frames to flow
+            fillMode: 'forwards', //[optional, default: 'forward']  how to apply the styles outside the animation time, default value is forwards
+          });
+        $("#obstacle").playKeyframe({
+            name: '', // name of the keyframe you want to bind to the selected element
+            duration: '0s', // [optional, default: 0, in ms] how long you want it to last in milliseconds
+            timingFunction: 'linear', // [optional, default: ease] specifies the speed curve of the animation
+            delay: '0s', //[optional, default: 0s]  how long you want to wait before the animation starts
+            iterationCount: 'infinite', //[optional, default:1]  how many times you want the animation to repeat
+            direction: 'normal', //[optional, default: 'normal']  which direction you want the frames to flow
+            fillMode: 'forwards', //[optional, default: 'forward']  how to apply the styles outside the animation time, default value is forwards
+          });
+        $("#obstacleThree").playKeyframe({
+            name: '', // name of the keyframe you want to bind to the selected element
+            duration: '0s', // [optional, default: 0, in ms] how long you want it to last in milliseconds
+            timingFunction: 'linear', // [optional, default: ease] specifies the speed curve of the animation
+            delay: '0s', //[optional, default: 0s]  how long you want to wait before the animation starts
+            iterationCount: 'infinite', //[optional, default:1]  how many times you want the animation to repeat
+            direction: 'normal', //[optional, default: 'normal']  which direction you want the frames to flow
+            fillMode: 'forwards', //[optional, default: 'forward']  how to apply the styles outside the animation time, default value is forwards
+          });
+        $("#obstacleFour").playKeyframe({
+            name: '', // name of the keyframe you want to bind to the selected element
+            duration: '0s', // [optional, default: 0, in ms] how long you want it to last in milliseconds
+            timingFunction: 'linear', // [optional, default: ease] specifies the speed curve of the animation
+            delay: '0s', //[optional, default: 0s]  how long you want to wait before the animation starts
+            iterationCount: 'infinite', //[optional, default:1]  how many times you want the animation to repeat
+            direction: 'normal', //[optional, default: 'normal']  which direction you want the frames to flow
+            fillMode: 'forwards', //[optional, default: 'forward']  how to apply the styles outside the animation time, default value is forwards
+          });
+        clearInterval(decGas);
+        clearInterval(checkGasCollision);
+        clearInterval(makeObsThree);
+        clearInterval(makeObsFour);
+  }
+}
+   
+
+function goLeft(){
+  if(carPos!=0){
+    carPos--;
+    if (window.orientation==0 || window.orientation==180){
+      document.getElementById("car").style.left=carPos*100+10+"px";
+    }else{
+      document.getElementById("car").style.left=carPos*60+10+"px";
+    }
+  }
+}
+
+function goRight(){
+  if(carPos!=2){
+    carPos++;
+    if (window.orientation==0 || window.orientation==180){
+      document.getElementById("car").style.left=carPos*100+10+"px";
+    }else{
+      document.getElementById("car").style.left=carPos*60+10+"px";
+    }  
+  }
+}
+
+
+</script> 
+
+
+  </body>    
+</html>
