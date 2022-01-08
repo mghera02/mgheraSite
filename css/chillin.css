@@ -11,7 +11,7 @@ body{
     width: 0;
     height: 0;
     border: .5vw solid transparent;
-    border-bottom: .7vw solid rgb(255,255,150);
+    border-bottom: .3vw solid rgb(255,255,150);
     position: absolute;
     top: .5vw;
     left:.5vw;
@@ -23,43 +23,44 @@ body{
   	content: '';
     position: absolute;
     left: -.5vw;
-    top: .7vw;
+    top: .3vw;
     width: 0;
     height: 0;
     border: .5vw solid transparent;
-    border-top: .7vw solid var(--background);
+    border-top: .3vw solid var(--background);
     z-index:1;
 }
 
-.starWhite {
-    width: 0;
-    height: 0;
-    border: .5vw solid transparent;
-    border-bottom: .7vw solid rgb(255,255,240);
-    position: absolute;
-    top: .5vw;
-    left:.5vw;
-    animation: 3s linear .1s flicker infinite;
-    filter: drop-shadow(0 0 .6vw rgb(255,255,240));
-    z-index:1;
+.star {
+  width: 0;
+  height: 0;
+  border: .5vw solid transparent;
+  border-bottom: .3vw solid rgb(255,255,240);
+  position: absolute;
+  top: .5vw;
+  left:.5vw;
+  animation: 3s linear .1s flicker infinite;
+  filter: drop-shadow(0 0 .6vw rgb(255,255,240));
+  z-index:1;
 }
-.starWhite::after {
-  	content: '';
-    position: absolute;
-    left: -.5vw;
-    top: .7vw;
-    width: 0;
-    height: 0;
-    border: .5vw solid transparent;
-    border-top: .7vw solid rgb(255,255,240);
-    z-index:1;
+.star::after {
+  content: '';
+  position: absolute;
+  left: -.5vw;
+  top: .3vw;
+  width: 0;
+  height: 0;
+  border: .5vw solid transparent;
+  border-top: .3vw solid var(--background);
+  z-index:1;
 }
+
 
 .starBlue {
     width: 0;
     height: 0;
     border: .5vw solid transparent;
-    border-bottom: .7vw solid rgb(195,195,255);
+    border-bottom: .3vw solid rgb(195,195,255);
     position: absolute;
     top: .5vw;
     left:.5vw;
@@ -71,11 +72,11 @@ body{
   	content: '';
     position: absolute;
     left: -.5vw;
-    top: .7vw;
+    top: .3vw;
     width: 0;
     height: 0;
     border: .5vw solid transparent;
-    border-top: .7vw solid rgb(195,195,255);
+    border-top: .3vw solid rgb(195,195,255);
     z-index:1;
 }
 
@@ -83,7 +84,7 @@ body{
     width: 0;
     height: 0;
     border: .5vw solid transparent;
-    border-bottom: .7vw solid rgb(255,180,130);
+    border-bottom: .3vw solid rgb(255,180,130);
     position: absolute;
     top: .5vw;
     left:.5vw;
@@ -95,11 +96,11 @@ body{
   	content: '';
     position: absolute;
     left: -.5vw;
-    top: .7vw;
+    top: .3vw;
     width: 0;
     height: 0;
     border: .5vw solid transparent;
-    border-top: .7vw solid rgb(255,180,130);
+    border-top: .3vw solid rgb(255,180,130);
     z-index:1;
 }
 
@@ -107,7 +108,7 @@ body{
     width: 0;
     height: 0;
     border: .5vw solid transparent;
-    border-bottom: .7vw solid rgb(180,255,170);
+    border-bottom: .3vw solid rgb(180,255,170);
     position: absolute;
     top: .5vw;
     left:.5vw;
@@ -119,11 +120,11 @@ body{
   	content: '';
     position: absolute;
     left: -.5vw;
-    top: .7vw;
+    top: .3vw;
     width: 0;
     height: 0;
     border: .5vw solid transparent;
-    border-top: .7vw solid rgb(180,255,170);
+    border-top: .3vw solid rgb(180,255,170);
     z-index:1;
 }
 
@@ -131,7 +132,7 @@ body{
     width: 0;
     height: 0;
     border: .5vw solid transparent;
-    border-bottom: .7vw solid rgb(255,120,120);
+    border-bottom: .4vw solid rgb(255,120,120);
     position: absolute;
     top: .5vw;
     left:.5vw;
@@ -143,11 +144,11 @@ body{
   	content: '';
     position: absolute;
     left: -.5vw;
-    top: .7vw;
+    top: .3vw;
     width: 0;
     height: 0;
     border: .5vw solid transparent;
-    border-top: .7vw solid rgb(255,120,120);
+    border-top: .4vw solid rgb(255,120,120);
     z-index:1;
 }
 
