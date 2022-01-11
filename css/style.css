@@ -37,14 +37,39 @@
         left:5%;
     }
 
-    table{
+    #nav{
       position:relative;
       left:7vw;
-      top:5vw;
+      top:0vw;
     }
 
-    th{
+    .pageHeader{
       width:20vw;
+    }
+
+    #socials{
+      position:relative;
+      left:82vw;
+      width:16vw;
+      height:8vw;
+      top:-17vw;
+      background:rgb(10,100,20,.7);
+      border-radius:4vw;
+    }
+
+    #socialHeader{
+      width:9vw;
+    }
+
+    #gitHub{
+      filter:invert(1);
+      width:5.5vw;
+      height:auto
+    }
+
+    #linkedIn{
+      width:6vw;
+      height:auto
     }
 
     .nav__btn{
@@ -173,15 +198,41 @@
         left:5%;
         width:40vw;
     }
-    table{
+
+    #nav{
       position:relative;
       left:10vw;
       top:20vw;
       width:80vw;
     }
 
-    th{
+    .pageHeader{
       width:28vw;
+    }
+
+    #socials{
+      position:relative;
+      left:70vw;
+      width:26vw;
+      height:15vw;
+      top:-45vw;
+      background:rgb(10,100,20,.7);
+      border-radius:7vw;
+    }
+
+    #socialHeader{
+      width:15vw;
+    }
+
+    #gitHub{
+      filter:invert(1);
+      width:10vw;
+      height:auto
+    }
+
+    #linkedIn{
+      width:11vw;
+      height:auto
     }
 
     .nav__btn{
